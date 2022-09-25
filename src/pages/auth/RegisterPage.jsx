@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
-import Title from "../components/Title";
+import { AuthContext } from "../../context/AuthContext";
+import Title from "../../components/Title";
 
 const initForm = {
+  name: "",
+  lastName: "",
   email: "",
   userName: "",
   password: "",
@@ -37,6 +39,32 @@ const RegisterPage = () => {
         <article className="col">
           <form onSubmit={handleForm}>
           <div className="mb-3">
+              <label htmlFor="inputName" className="form-label">
+                Nombre(s):
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputName"
+                onChange={cambio}
+                value={form.name}
+                name="name"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputLastName" className="form-label">
+                Apellido(s):
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="inputLastName"
+                onChange={cambio}
+                value={form.lastName}
+                name="lastName"
+              />
+            </div>
+            <div className="mb-3">
               <label htmlFor="inputEmail" className="form-label">
                 Correo
               </label>

@@ -65,9 +65,26 @@ const NavBar = () => {
             </ul>
             <ul className="navbar-nav  mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" href="/login">
-                  Iniciar sesión
-                </a>
+                <NavLink
+                  to="/login"
+                  aria-current="page"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  INICIAR SESIÓN
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/register"
+                  aria-current="page"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active" : "nav-link"
+                  }
+                >
+                  REGISTRARSE
+                </NavLink>
               </li>
             </ul>
           </div>

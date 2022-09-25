@@ -14,6 +14,7 @@ import NavBar from '../components/NavBar';
 import HomePage from '../pages/HomePage';
 import ProductPage from '../pages/products/ProductPage';
 import LoginPage from '../pages/auth/LoginPage';
+import RegisterPage from  '../pages/auth/RegisterPage';
 const AppRouter = () => {
   return (
     <Router>
@@ -23,6 +24,7 @@ const AppRouter = () => {
           <Route path="/" element={<HomePage/>} />
           {/* Rutas para el logeo y registro de usuarios */}
           <Route path='/login' element={<LoginPage/>} />
+          <Route path='/register' element={<RegisterPage/>} />
           {/* Ruta para productos */}
           <Route path='/products' element={<ProductPage/>} />
           {/* Ruta creada para redireccionar cuando se coloque una ruta que no es */}

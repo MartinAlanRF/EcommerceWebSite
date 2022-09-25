@@ -30,6 +30,8 @@ const intialState = {
         setAuth(
         {
          id: data.data.id,
+         name: data.data.name,
+         lastName: data.data.lastName,
          email: data.data.email,
          userName: data.data.userName,
          password: data.data.password,
@@ -42,10 +44,12 @@ const intialState = {
       const data = await signupSerivce(form);
       setAuth({
         id: data.data.id,
+        name: data.data.name,
+        lastName: data.data.lastName,
         email: data.data.email,
-        username: data.data.username,
+        userName: data.data.userName,
         password: data.data.password,
-        authStatus: true,
+        authStatus: true,    
       });
   
       localStorage.setItem("token", data.token);
@@ -60,6 +64,8 @@ const intialState = {
 
       setAuth({
         id: resp.data.id,
+        name: resp.data.name,
+        lastName: resp.data.lastName,
         username: resp.data.username,
         email: resp.data.email,
         password: resp.data.password,
@@ -69,6 +75,8 @@ const intialState = {
       localStorage.removeItem("token");
       setAuth({
         id: null,
+        name: null,
+        lastName: null,
         username: null,
         email: null,
         password: null,
@@ -81,7 +89,8 @@ const intialState = {
     localStorage.removeItem("token");
     setAuth({
       id: null,
-      username: null,
+      name: null,
+      lastName: null,
       email: null,
       password: null,
       authStatus: false,
