@@ -2,7 +2,7 @@ import React from 'react'
 
 const Title = ({titulo}) => {
   return (
-    <header className='row col'>
+    <header className='row col mt-3'>
         <h1 className='text-center'>{titulo}</h1>
     </header>
   )

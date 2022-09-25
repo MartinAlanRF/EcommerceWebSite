@@ -1,7 +1,9 @@
-#root2 {
-    background-color: #eee;
+#root{
+  margin-bottom: 20px;
 }
-
+.jumb{
+  height: 250px;
+}
 /* Esto es el estilo del jumnotrom */
     .product-device {
     position: absolute;
