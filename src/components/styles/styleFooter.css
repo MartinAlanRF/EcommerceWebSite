@@ -1,0 +1,107 @@
+.navBar{
+    background-color: #000 !important;
+    color: #f5f5f5;
+}
+
+
+
+/* //////////COMIENZA LA SECCIÓN FOOTER//////////// */
+/* Necesito revisar la alturata de mi footer */
+/* Footer */
+#footer {
+    /* Esta parte del margin top la tendré que ir variando para 
+    hacer que sea fija a la parte de abajod de mi página */
+    margin-top: auto;
+    /* margin-bottom: auto; */
+    width: 100%;
+    height: 470px;
+    background-color: #000;
+    color: #f5f5f5;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*  Los div dentro de footer*/
+#footer .wrap>div {
+    float: left;
+    width: 320px;
+    height: 370px;
+    margin: 40px;
+    text-align: center;
+    color: #f5f5f5;
+    font-family: "TrebuchetMS";
+}
+
+/* Enlaces del footer */
+footer a {
+    text-decoration: none;
+    color: #37bcf9;
+    transition: all 300ms;
+}
+
+/* Encabezados de las secciones en el footer */
+#footer h5 {
+    display: block;
+   /*  background: url("../img/pxgray.png"), #fff; */
+    height: 50px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: "BebasNeue";
+    font-size: 40px;
+    line-height: 40px;
+    color: #000;
+    border-radius: 5px;
+}
+
+#footer ul {
+    text-align: left;
+    margin: 20px;
+    font-size: 25px;
+}
+
+#footer ul li {
+    margin-top: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+#footer ul li a {
+    display: block;
+    height: 40px;
+    text-transform: uppercase;
+    /* Se creo una transition  */
+    transition: all 300ms;
+}
+
+#footer ul li:hover a{
+    padding-left: 40px;
+    color: #f5f5f5;
+    width: 100%;
+}
+
+/* Sección del mapa */
+#footer iframe {
+    width: 100%;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 5px #808080;
+}
+
+/* Para las imagens del footer */
+
+#footer img {
+    margin-bottom: 15px;
+}
+
+#footer #browsers img {
+    width: 45px;
+}
+
+/* Termina el footer */
+
+
+/* //////////COMIENZA LAS MEDIA QUERYS PARA EL FOOTER//////////// */

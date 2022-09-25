@@ -1,0 +1,62 @@
+#root2 {
+    background-color: #eee;
+}
+
+/* Esto es el estilo del jumnotrom */
+    .product-device {
+    position: absolute;
+    width: 600px;
+    height: 200px;
+
+    background-color: rgba(51, 51, 51, 0.575);
+    border-radius: 10px;
+  /*  // transform: rotate(30deg); */
+  }
+  
+/*   .product-device::before {
+    position: absolute;
+    top: 10%;
+    right: 10px;
+    bottom: 10%;
+    left: 10px;
+    content: "";
+    background-color: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  } */
+  
+/*   .product-device-2 {
+    top: -25%;
+    right: auto;
+    bottom: 0;
+    left: 5%;
+    background-color: #e5e5e5;
+  } */
+
+  /* Categorías */
+.seccionProducto1{
+    background-image: url('../../assets/imgs/homeImgs/img1.jpg');
+    min-height: 480px;
+    background-size: cover;
+  }
+
+  .seccionProducto2{
+    background-image: url('../../assets/imgs/homeImgs/img2.jpg');
+    min-height: 480px;
+    background-size: cover;
+  }
+
+  .seccionProducto3{
+    background-image: url('../../assets/imgs/homeImgs/img3.jpg');
+    min-height: 480px;
+    background-size: cover;
+  }
+  .seccionText{
+    padding: 3rem;
+    text-align: justify;
+  }
+
+  @media (min-width: 768px) {
+    .seccionText{
+        padding: 112px;
+    }
+  }
