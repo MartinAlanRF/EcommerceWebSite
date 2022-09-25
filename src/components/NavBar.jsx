@@ -11,7 +11,7 @@ const NavBar = () => {
     <div className="navBar">
               <nav id='NavBar' className=" mx-auto navbar navbar-expand-lg navbar-dark bg-dark">
           <div className="container">
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/home">
            {/*  <img src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt width={30} height={24} /> */}
                 KeyMARF.MX
             </a>
@@ -23,7 +23,7 @@ const NavBar = () => {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <NavLink
-                      to="/"
+                      to="/home"
                       aria-current="page"
                       className={({ isActive }) =>
                         isActive ? "nav-link active" : "nav-link"
@@ -49,7 +49,7 @@ const NavBar = () => {
               </ul>
               <ul className="navbar-nav  mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <a className="nav-link" href="/login">
                       Iniciar sesión</a>
                   </li> 
               </ul>

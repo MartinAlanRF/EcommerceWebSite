@@ -3,7 +3,7 @@ import './styles/styleFooter.css';
 const Footer = () => {
   return (
     <>
-      <footer id="footer" className="mt-auto py-3">
+      <footer id="footer" className="mt-auto">
         <div className="wrap">
           {/* Inicio del menuFooter */}
           <div id="menu_footer">
