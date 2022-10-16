@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URLROOT = "https://apimongonodejs.onrender.com/api/auth/";
+const URLROOT = "https://apimongonodejs.onrender.com/api/auth";
 const CONFIG = {
   headers: {
     "auth-token": localStorage.getItem("token"),

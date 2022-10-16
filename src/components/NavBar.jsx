@@ -47,7 +47,7 @@ const NavBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  HOME
+                  INICIO
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -58,10 +58,12 @@ const NavBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  MERCANCIA
+                  NUESTROS PRODUCTOS
                 </NavLink>
               </li>
-              <li className="nav-item"></li>
+              <li className="nav-item">
+                
+              </li>
             </ul>
             <ul className="navbar-nav  mb-2 mb-lg-0">
               <li className="nav-item">

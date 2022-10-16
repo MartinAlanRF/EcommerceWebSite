@@ -11,10 +11,12 @@ import NavBar from '../components/NavBar';
 // Footer
 //import Footer from '../components/Footer';
 /* Importando paginas (pages) */
-import HomePage from '../pages/HomePage';
-import ProductPage from '../pages/products/ProductPage';
 import LoginPage from '../pages/auth/LoginPage';
 import RegisterPage from  '../pages/auth/RegisterPage';
+
+import HomePage from '../pages/HomePage';
+import ProductsPage from '../pages/products/ProductsPage';
+import ProductPage from '../pages/products/ProductPage';
 const AppRouter = () => {
   return (
     <Router>
@@ -26,9 +28,11 @@ const AppRouter = () => {
           <Route path='/login' element={<LoginPage/>} />
           <Route path='/register' element={<RegisterPage/>} />
           {/* Ruta para productos */}
-          <Route path='/products' element={<ProductPage/>} />
+          <Route path='/products' element={<ProductsPage/>} />
+          {/* Rura para un solo producto */}
+          <Route path='/products/:id' element= {<ProductPage/>} />
           {/* Ruta creada para redireccionar cuando se coloque una ruta que no es */}
-          <Route path='*' element={ <Navigate to='/home'/> }/>
+          <Route path='*' element={ <Navigate to='/'/> }/>
           </Routes>
       </div>
       {/* <Footer/> */}

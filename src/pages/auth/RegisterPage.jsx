@@ -35,7 +35,7 @@ const RegisterPage = () => {
           <p className="text-center">{auth.id}</p>
         </article>
       </section>
-            <main className="row">
+      <main className="row">
         <article className="col">
           <form onSubmit={handleForm}>
           <div className="mb-3">
