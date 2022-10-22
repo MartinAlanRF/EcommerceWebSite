@@ -36,16 +36,15 @@ export const crearProductoService = async (form) => {
 };
 
 //RUTA PARA ACTUALIZAR UN PRODUCTO
-export const actualizarProductoService = async (id, form)=> {
-    const resp = await axios.put(`${URL}/${id}`, form, 
-        {
-            headers: {
-                "auth-token": localStorage.getItem("token"),
-            },
-        }
-    );
+export const actualizarProductoService = async (id, form) =>{
+    const resp = await axios.put(`${URL}/${id}`, form,
+    {
+     headers: {
+        "auth-token": localStorage.getItem("token"),
+     }, 
+    });
     return resp.data;
-}
+  }
 
 //RUTA PARA ELEMINAR UN PRODUCTO DE LA LISTA DE PRODUCTOS
 export const eliminarProductoService = async (id) =>{

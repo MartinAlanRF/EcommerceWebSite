@@ -3,7 +3,6 @@ import React, { useEffect, useContext } from "react";
 import ProductContext from "../../context/ProductContext"
 import Title from '../../components/Title'
 import ProductFormEdit from "../../components/productsComponents/ProductFormEdit";
-
 import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
@@ -13,8 +12,11 @@ const ProductPage = () => {
   useEffect(() => {
     /* Nota aquí no es necesario colocar el await debido a que ya cuenta con el await 
     desde el productoState */
+    //console.log(id)
     obtenerProducto(id);
   }, [id, obtenerProducto]);
+
+
   return (
     <>
       <Title titulo="Pagina de producto" />
@@ -31,6 +33,7 @@ const ProductPage = () => {
             />
             <div className="card-body text-center">
               <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.id}</p>
               <p className="card-text">{product.description}</p>
               <p className="card-text">{product.price}</p>
             </div>

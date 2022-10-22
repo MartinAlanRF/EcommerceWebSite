@@ -29,13 +29,14 @@ const ProductList = () => {
     <div className="container text-center  align-items-center h-100">
       <div className="row">
         {products.map((product) => (
-          <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-2 " key={product.id}>
-            <div className="card text-black">
+          <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-2" key={product.id}>
+            <div className="card text-black"  >
               <i className="fab fa-apple fa-lg pt-3 pb-1 px-3" />
               <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
               <div className="card-body">
                 <div className="text-center">
                   <h5 className="card-title">{product.name}</h5>
+                  <p className="text-muted mb-4">{product.id}</p>
                   <p className="text-muted mb-4">{product.description}</p>
                   <p className="text-muted mb-4">{product.price}</p>
                   <NavLink

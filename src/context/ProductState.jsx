@@ -17,7 +17,10 @@ import {
 /* Se crea el estado inicial de mi objeto Producto */
 const initialState = {
     products: [],
+    /* Se añadade otra variable de estado iniciar la cual es de tipo objeto ya que solo traera al info
+    de un solo producto */
     product: {},
+
 }
 
 /* Recibe todos los componentes que se encuentren dentro de auth provider */
@@ -62,7 +65,7 @@ const ProductState = ({children}) => {
             producto creado */
         await obtenerProductos();
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
     };
 
@@ -71,9 +74,9 @@ const ProductState = ({children}) => {
     const obtenerProducto = useCallback(async (id) =>{
         try{
             const resp = await obtenerProductoService(id);
-            console.log(resp);
+            //console.log(resp);
             const producto = {
-                id: resp.data.id,
+                id: resp.data._id,
                 name: resp.data.name,
                 description: resp.data.description,
                 price: resp.data.price,
