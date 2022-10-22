@@ -23,16 +23,32 @@ export const obtenerProductosService = async () => {
     return resp.data;
 };
 
-// RUTA POST PARA CREAR UN NUEVO PRODUCTO
-export const crearProductoService = async (form) => {
-    const resp = await axios.post(URL,form,ConfigHeader);   
-    return resp.data;
-};
-
 // RUTA PARA OBTENER LA INFORMACIÓN DE UN PRODUCTO
 export const obtenerProductoService = async (id)=>{
     const resp = await axios.get(`${URL}/${id}`,ConfigHeader);
     return resp.data;
 } ;
 
+// RUTA POST PARA CREAR UN NUEVO PRODUCTO
+export const crearProductoService = async (form) => {
+    const resp = await axios.post(URL,form,ConfigHeader);   
+    return resp.data;
+};
 
+//RUTA PARA ACTUALIZAR UN PRODUCTO
+export const actualizarProductoService = async (id, form)=> {
+    const resp = await axios.put(`${URL}/${id}`, form, 
+        {
+            headers: {
+                "auth-token": localStorage.getItem("token"),
+            },
+        }
+    );
+    return resp.data;
+}
+
+//RUTA PARA ELEMINAR UN PRODUCTO DE LA LISTA DE PRODUCTOS
+export const eliminarProductoService = async (id) =>{
+    const resp = await axios.delete(`${URL}/${id}`,ConfigHeader);
+    return resp.data
+}

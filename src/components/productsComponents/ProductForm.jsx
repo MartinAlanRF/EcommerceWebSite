@@ -15,6 +15,7 @@ const initForm = {
 const ProductForm = () => {
   /* Se hace uso del useState para obtener el valor de los inputs del formulario */
   const [form, setForm] = useState(initForm);
+
   /* Se implementa la función de crearProducto dentro de ProductContext->ProductState*/
   const {crearProducto} = useContext (ProductContext)
 
@@ -34,6 +35,7 @@ const ProductForm = () => {
       [e.target.name]: e.target.value,
     });
   };
+
 
   return (
     <form className="w-100" onSubmit={handleForm}>
@@ -80,8 +82,7 @@ const ProductForm = () => {
         <button type="submit" className="btn btn-success">
           Crear
         </button>
-        {/* Añadí el botón para poder cerrar el modal desde el formulario */}
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      
       </div>
     </form>
   );

@@ -10,6 +10,8 @@ import {
     obtenerProductosService,
     crearProductoService,
     obtenerProductoService,
+    actualizarProductoService,
+    eliminarProductoService,
 } from '../services/productServices.js';
 
 /* Se crea el estado inicial de mi objeto Producto */
@@ -18,38 +20,32 @@ const initialState = {
     product: {},
 }
 
-/* Recibe todos los componentes que se encuentren dentro 
-de auth provider */
+/* Recibe todos los componentes que se encuentren dentro de auth provider */
 const ProductState = ({children}) => {
-    /* Se impmenta useReducer snipet para poder mandar al estado global 
-        la información de los productos    
-    */
-   /* Ayuda a ejecutar un reducer/dispatch permite utilizar reducers que haya creado */
+    /*Se impmenta useReducer snipet para poder mandar al estado global  la información de los productos*/
+    /*Ayuda a ejecutar un reducer/dispatch permite utilizar reducers que haya creado */
     const [globalState, dispatch] = useReducer(ProductReducer, initialState);
 
+    /* Se implementa el uso del hookUseCallBack para poder memorizar la función y esta no se ejecute varias veces
+        dentro del useEfect */
     const obtenerProductos = useCallback (async() => {
-        /* Se llama a la función de ObtenerProductosService dentro del archivo 
-            productService
-        */
+        /* Se llama a la función de ObtenerProductosService dentro del archivo productService*/
         const resp = await obtenerProductosService();
-        /* Con la la data de resp se ocupa la función map 
-            Para obtener el arreglo de los objetos que tenmos
-        */
-       const productos = resp.data.map((obj)=>{
+        /* Con la la data de resp se ocupa la función map para obtener el arreglo de los objetos que tenmos*/
+       
+        const productos = resp.data.map((obj)=>{
             return {
                 id: obj._id,
                 name: obj.name,
                 description: obj.description,
                 price: obj.price,
-                /* Se añada el carrito */
+                /* En esta parte de añade lo del apartado del carrito */
             }
         });
-        /*El dispatch sirve para disparar el reducer, ya que el reducer
-        es quien va alterar el estado global de la app*/
+        /*El dispatch sirve para disparar el reducer, ya que el reducer es quien va alterar el estado global de la app*/
         dispatch({
             type: "OBTENER_PRODUCTOS",
-            payload: productos, //Es la informacion que le manda al reducer para que actualice y es la que se
-        // obtuveo del api
+            payload: productos, //Es la informacion que le manda al reducer para que actualice y es la que se obtuvo del api
         });
 
     },[]);
@@ -70,6 +66,8 @@ const ProductState = ({children}) => {
         }
     };
 
+    /* Función para obtener la información de un solo producto de la lista de productos que se tiene*/
+    /* Se hace de nueva cuenta el uso de useCallBack para memorizar la función */
     const obtenerProducto = useCallback(async (id) =>{
         try{
             const resp = await obtenerProductoService(id);
@@ -92,6 +90,24 @@ const ProductState = ({children}) => {
         }  
     },[]);
 
+    /* Función para actulizar producto, recibe como parametro el id del producto, y el formulario
+       que contiene la información del producto ha actualizar */
+    const actualizarProducto = async (id, form) =>{
+        await actualizarProductoService(id, form);
+        await obtenerProducto(id);
+    }
+
+    /* Función para eliminar un producto en base su id, recibe como parametro el id del producto */
+    const eliminarProducto = async (id) => {
+        try {
+            await eliminarProductoService(id);
+            /* Se ejecuta de neuvo obtener productos para cargar la lista ya con el nuevo producto creado */
+            await obtenerProductos();
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <>
             <ProductContext.Provider
@@ -100,7 +116,9 @@ const ProductState = ({children}) => {
                     obtenerProductos,
                     crearProducto,
                     obtenerProducto,
+                    actualizarProducto,
                     product: globalState.product,
+                    eliminarProducto,
                 }}
         
             >
