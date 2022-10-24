@@ -60,12 +60,15 @@ export const AuthProvider = ({ children }) => {
 
     localStorage.setItem("token", data.token);
   };
+
+
+  /* Función para vericar el token de la aplicación */
   const verifyingToken = async () => {
     const token = localStorage.getItem("token");
 
     if (token) {
+      console.log("ejecutando verifyingToken");
       const resp = await verifyingTokenService();
-
       localStorage.setItem("token", resp.token);
 
       setAuth({
@@ -78,6 +81,7 @@ export const AuthProvider = ({ children }) => {
         authStatus: true,
       });
     } else {
+      console.log("VerifyingToken, no hayh token");
       localStorage.removeItem("token");
       setAuth({
         id: null,
