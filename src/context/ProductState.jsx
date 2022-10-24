@@ -20,7 +20,7 @@ const initialState = {
     /* Se añadade otra variable de estado iniciar la cual es de tipo objeto ya que solo traera al info
     de un solo producto */
     product: {},
-
+    cart: [],
 }
 
 /* Recibe todos los componentes que se encuentren dentro de auth provider */
@@ -111,6 +111,33 @@ const ProductState = ({children}) => {
         }
     };
 
+
+
+    /* Función para agregar un producto a mi carrito de compras */
+
+    const agregarProductoCarrito = (product) => {
+        const productoEncontrado = globalState.cart.find(
+          (producto) => product.id === producto.id
+        );
+    
+        if (!productoEncontrado) {
+          //console.log(product)
+          dispatch({
+            type: "AGREGAR_PRODUCTO_CARRITO",
+            payload: product,
+          });
+        }
+      };
+    
+
+    /* Función para eliminar un producto del carrito de compras */
+    const eliminarProductoCarrito = (id) =>{
+        dispatch({
+          type: "ELIMINAR_PRODUCTO_CARRITO",
+          payload: id,
+        });
+      }
+
     return (
         <>
             <ProductContext.Provider
@@ -122,6 +149,9 @@ const ProductState = ({children}) => {
                     actualizarProducto,
                     product: globalState.product,
                     eliminarProducto,
+                    agregarProductoCarrito,
+                    cart: globalState.cart,
+                    eliminarProductoCarrito,
                 }}
         
             >

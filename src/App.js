@@ -10,13 +10,28 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import { AuthProvider } from './context/AuthContext';
 
 
+/* Importando paypal */
+import {PayPalScriptProvider} from "@paypal/react-paypal-js";
+
 const App = () => {
   return (
     <>
       <AuthProvider>
+
+        <PayPalScriptProvider
+          options={{
+            "client-id": "AbTDndzFLv-Wox3u0OTNkYQXA6fErI8PqzbbM1eaHdwAqvTDjsRUhzEJ-v55LNG2vEZ07ikRin5cpAx2",
+          }}
+        >
+
         <ProductState>
+
           <AppRouter/>
+
         </ProductState>
+
+        </PayPalScriptProvider>
+
       </AuthProvider>
     </>
   )

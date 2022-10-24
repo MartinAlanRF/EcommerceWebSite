@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const {product, obtenerProducto } = useContext(ProductContext)
+  const {product, obtenerProducto, agregarProductoCarrito } = useContext(ProductContext)
 
   useEffect(() => {
     /* Nota aquí no es necesario colocar el await debido a que ya cuenta con el await 
@@ -16,6 +16,10 @@ const ProductPage = () => {
     obtenerProducto(id);
   }, [id, obtenerProducto]);
 
+  const handleAgregarProductoCarrito = () => {
+    agregarProductoCarrito(product);
+    //console.log(product);
+  };
 
   return (
     <>
@@ -36,6 +40,13 @@ const ProductPage = () => {
               <p className="card-text">{product.id}</p>
               <p className="card-text">{product.description}</p>
               <p className="card-text">{product.price}</p>
+              <button
+                type="button"
+                className="btn btn-primary"
+               onClick={handleAgregarProductoCarrito}
+              >
+                Agregar al carrito
+              </button>
             </div>
           </div>
         </article>

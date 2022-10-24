@@ -17,6 +17,8 @@ import RegisterPage from  '../pages/auth/RegisterPage';
 import HomePage from '../pages/HomePage';
 import ProductsPage from '../pages/products/ProductsPage';
 import ProductPage from '../pages/products/ProductPage';
+import CartPage from '../pages/cart/CartPage';
+import ProfilePage from '../pages/users/ProfilePage';
 const AppRouter = () => {
   return (
     <Router>
@@ -31,6 +33,10 @@ const AppRouter = () => {
           <Route path='/products' element={<ProductsPage/>} />
           {/* Rura para un solo producto */}
           <Route path='/products/:id' element= {<ProductPage/>} />
+          {/* Ruta para carrito de compras */}
+          <Route path='/cart' element={<CartPage/>} />
+          {/* Ruta para ver los datos del usuario */}
+          <Route path='/profile' element={<ProfilePage/>} />
           {/* Ruta creada para redireccionar cuando se coloque una ruta que no es */}
           <Route path='*' element={ <Navigate to='/'/> }/>
           </Routes>
