@@ -1,15 +1,22 @@
 import React, {useContext} from "react";
-/* Importo NavLinkPorque es el componente que nos permite
-dar clic y llevarno a las rutras */
+/* Importo NavLinkPorque es el componente que nos permite dar clic y llevarno a las rutras */
 import { NavLink } from "react-router-dom";
 /* Importo authcontext para poder pasar los valores de mi incio de sesison mediante las prop */
 import { AuthContext } from "../context/AuthContext";
-
+/* Importando useNavigate para redireccionar a una vista */
+import {useNavigate} from 'react-router-dom';
 
 import "./styles/styleFooter.css";
 
 const NavBarPrivado = () => {
   const { auth, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    console.log('Cerrando sesión')
+    logout();
+    navigate('/login');
+  };
 
   return (
     <div className="navBar">
@@ -108,9 +115,12 @@ const NavBarPrivado = () => {
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <button className="dropdown-item" onClick={logout}>
+                      <button className="dropdown-item" onClick={handleLogout}>
                         Cerrar sesión
                       </button>
+{/*                       <button className="dropdown-item" onClick={logout}>
+                        Cerrar sesión
+                      </button> */}
                     </li>
                   </ul>
                 </li>

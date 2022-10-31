@@ -9,7 +9,7 @@ import RegisterPage from  '../pages/auth/RegisterPage';
 
 /* Importando paginas publicas */
 import HomePage from '../pages/HomePage';
-import ProductsPage from '../pages/products/ProductsPage';
+// import ProductsPage from '../pages/products/ProductsPage';
 
 
 const AppRouter = () => {
@@ -23,7 +23,7 @@ const AppRouter = () => {
             {/* Ruta para la página de incio */}
             <Route path="/" element={<HomePage/>} />
             {/* Ruta para la lista de todos  productos */}
-            <Route path='/products' element={<ProductsPage/>} />
+            {/* <Route path='/products' element={<ProductsPage/>} /> */}
 
             {/* Rutas para el logeo y registro de usuarios */}
             <Route path='/login' element={<LoginPage/>} />

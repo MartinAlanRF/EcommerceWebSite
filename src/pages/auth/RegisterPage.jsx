@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Title from "../../components/Title";
+/* Importando useNavigate para redireccionar a una vista */
+import {useNavigate} from 'react-router-dom';
 
 const initForm = {
   name: "",
@@ -13,11 +15,13 @@ const initForm = {
 const RegisterPage = () => {
   const [form, setForm] = useState(initForm);
   const { auth, signup } = useContext(AuthContext);
+  const navigate = useNavigate();
+
 
   const handleForm = async (e) => {
     e.preventDefault();
-
     await signup(form);
+    navigate('/');
   };
 
   const cambio = (e) => {

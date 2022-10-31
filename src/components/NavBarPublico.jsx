@@ -54,17 +54,7 @@ const NavBarPublico = () => {
                   INICIO
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/products"
-                  aria-current="page"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  PRODUCTOS
-                </NavLink>
-              </li>
+
             </ul>
 
             <div className="">
