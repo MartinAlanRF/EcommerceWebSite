@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 /* Importo NavLinkPorque es el componente que nos permite
 dar clic y llevarno a las rutras */
 import { NavLink } from "react-router-dom";
+/* Importo authcontext para poder pasar los valores de mi incio de sesison mediante las prop */
+import { AuthContext } from "../context/AuthContext";
+
 
 import "./styles/styleFooter.css";
 
-const NavBar = () => {
+const NavBarPublico = () => {
+  const { auth } = useContext(AuthContext);
   return (
     <div className="navBar">
       <nav
@@ -58,56 +62,55 @@ const NavBar = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  NUESTROS PRODUCTOS
-                </NavLink>
-              </li>
-              <li className="nav-item">
-              <NavLink
-                  to="/cart"
-                  aria-current="page"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  CARRITO
+                  PRODUCTOS
                 </NavLink>
               </li>
             </ul>
-            <ul className="navbar-nav  mb-2 mb-lg-0">
-              <li className="nav-item">
-                  <NavLink
-                    to="/profile"
-                    aria-current="page"
-                    className={({ isActive }) =>
-                      isActive ? "nav-link active" : "nav-link"
-                    }
+
+            <div className="">
+              <ul className="navbar-nav mb-2 mb-lg-0">
+                <li className="nav-item dropdown">
+                  
+                  <a
+                    className="nav-link dropdown-toggle"
+                    href="/"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
                   >
-                    PERFIL
-                  </NavLink>
+                    {auth.userName ? auth.userName : "Mi cuenta"}
+                  </a>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <NavLink
+                        to="/login"
+                        aria-current="page"
+                        className={({ isActive }) =>
+                          isActive ? "dropdown-item active" : "dropdown-item"
+                        }
+                      >
+                        Iniciar sesión
+                      </NavLink>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/register"
+                        aria-current="page"
+                        className={({ isActive }) =>
+                          isActive ? "dropdown-item active" : "dropdown-item"
+                        }
+                      >
+                        Registrarse
+                      </NavLink>
+                    </li>
+                  </ul>
                 </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/login"
-                  aria-current="page"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  INICIAR SESIÓN
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  to="/register"
-                  aria-current="page"
-                  className={({ isActive }) =>
-                    isActive ? "nav-link active" : "nav-link"
-                  }
-                >
-                  REGISTRARSE
-                </NavLink>
-              </li>
-            </ul>
+              </ul>
+            </div>
+
           </div>
         </div>
       </nav>
@@ -115,4 +118,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavBarPublico;

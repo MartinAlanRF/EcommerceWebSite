@@ -1,49 +1,34 @@
-import React from 'react'
-import { BrowserRouter as 
-    Router, 
-    Routes, 
-    Route, 
-    Navigate } from 'react-router-dom';
+import React, {useContext, useEffect} from 'react'
+import { BrowserRouter as Router} from 'react-router-dom';
+/* Importando authContex para poder redireccionar las rutas si el usuario esta logeado o no */
+import { AuthContext } from '../context/AuthContext';
 
-/* Importando componentes */
-// NavBar
-import NavBar from '../components/NavBar';
-// Footer
-//import Footer from '../components/Footer';
-/* Importando paginas (pages) */
-import LoginPage from '../pages/auth/LoginPage';
-import RegisterPage from  '../pages/auth/RegisterPage';
+/* Importando las rutas privadas */
+import PrivateRoutes from './PrivateRoutes';
+/* Importando las rutas publicas */
+import PublicRoutes from './PublicRoutes';
 
-import HomePage from '../pages/HomePage';
-import ProductsPage from '../pages/products/ProductsPage';
-import ProductPage from '../pages/products/ProductPage';
-import CartPage from '../pages/cart/CartPage';
-import ProfilePage from '../pages/users/ProfilePage';
 const AppRouter = () => {
+  const {auth, verifyingToken} = useContext(AuthContext);
+
+  /* Para mantenener una sesión activa apesar de refrescar la página */
+  useEffect(() => {
+    verifyingToken();
+  }, [verifyingToken]);
+
   return (
-    <Router>
-      <NavBar/>
-      <div className="container">
-      <Routes>
-          <Route path="/" element={<HomePage/>} />
-          {/* Rutas para el logeo y registro de usuarios */}
-          <Route path='/login' element={<LoginPage/>} />
-          <Route path='/register' element={<RegisterPage/>} />
-          {/* Ruta para productos */}
-          <Route path='/products' element={<ProductsPage/>} />
-          {/* Rura para un solo producto */}
-          <Route path='/products/:id' element= {<ProductPage/>} />
-          {/* Ruta para carrito de compras */}
-          <Route path='/cart' element={<CartPage/>} />
-          {/* Ruta para ver los datos del usuario */}
-          <Route path='/profile' element={<ProfilePage/>} />
-          {/* Ruta creada para redireccionar cuando se coloque una ruta que no es */}
-          <Route path='*' element={ <Navigate to='/'/> }/>
-          </Routes>
-      </div>
-      {/* <Footer/> */}
-    </Router>
+         <Router>{auth.authStatus ? <PrivateRoutes /> : <PublicRoutes />}</Router>
   )
 }
 
-export default AppRouter
+export default AppRouter;
+
+// <Router>
+//         {auth.authStatus ? (
+//           <div>
+//             {auth.role === "admin" ? <RutasPrivadas /> : <RutasPrivadas />}
+//           </div>
+//         ) : (
+//           <RutasPublicas />
+//         )}
+//       </Router>

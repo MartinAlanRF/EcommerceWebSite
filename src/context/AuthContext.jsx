@@ -1,7 +1,7 @@
 /* Importanto useState para el manejo del estado inicial
    Importando useContext para el uso del archivo AuthContext 
 */
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useCallback } from "react";
 /*Importando las funciones que se encuentran dentronde 
   AuthService (conexion con la apiBackEnd)
 */
@@ -61,39 +61,76 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("token", data.token);
   };
 
+  const verifyingToken = useCallback(
+    async () => {
+      console.log('Ejecuntando la verificación del token')
+      const token = localStorage.getItem("token");
+  
+      if (token) {
+        console.log("ejecutando verifyingToken");
+        const resp = await verifyingTokenService();
+        localStorage.setItem("token", resp.token);
+  
+        setAuth({
+          id: resp.data.id,
+          name: resp.data.name,
+          lastName: resp.data.lastName,
+          username: resp.data.username,
+          email: resp.data.email,
+          password: resp.data.password,
+          authStatus: true,
+        });
+      } else {
+        console.log("VerifyingToken, no hay token");
+        localStorage.removeItem("token");
+        setAuth({
+          id: null,
+          name: null,
+          lastName: null,
+          username: null,
+          email: null,
+          password: null,
+          authStatus: false,
+        });
+      }
+    },
+    []
+  )
+  
+
 
   /* Función para vericar el token de la aplicación */
-  const verifyingToken = async () => {
-    const token = localStorage.getItem("token");
+  // const verifyingToken = async () => {
+  //   const token = localStorage.getItem("token");
 
-    if (token) {
-      console.log("ejecutando verifyingToken");
-      const resp = await verifyingTokenService();
-      localStorage.setItem("token", resp.token);
+  //   if (token) {
+  //     console.log("ejecutando verifyingToken");
+  //     const resp = await verifyingTokenService();
+  //     localStorage.setItem("token", resp.token);
 
-      setAuth({
-        id: resp.data.id,
-        name: resp.data.name,
-        lastName: resp.data.lastName,
-        username: resp.data.username,
-        email: resp.data.email,
-        password: resp.data.password,
-        authStatus: true,
-      });
-    } else {
-      console.log("VerifyingToken, no hayh token");
-      localStorage.removeItem("token");
-      setAuth({
-        id: null,
-        name: null,
-        lastName: null,
-        username: null,
-        email: null,
-        password: null,
-        authStatus: false,
-      });
-    }
-  };
+  //     setAuth({
+  //       id: resp.data.id,
+  //       name: resp.data.name,
+  //       lastName: resp.data.lastName,
+  //       username: resp.data.username,
+  //       email: resp.data.email,
+  //       password: resp.data.password,
+  //       authStatus: true,
+  //     });
+  //   } else {
+  //     console.log("VerifyingToken, no hayh token");
+  //     localStorage.removeItem("token");
+  //     setAuth({
+  //       id: null,
+  //       name: null,
+  //       lastName: null,
+  //       username: null,
+  //       email: null,
+  //       password: null,
+  //       authStatus: false,
+  //     });
+  //   }
+  // };
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -109,9 +146,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     /* Exportando la variable de estado y la función mediante las props de AuthProvider */
-    <AuthContext.Provider
-      value={{ auth, login, signup, verifyingToken, logout }}
-    >
+    <AuthContext.Provider value={{ auth, login, signup, verifyingToken, logout }}>
       {children}
     </AuthContext.Provider>
   );

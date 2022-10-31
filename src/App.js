@@ -1,5 +1,8 @@
 import React from 'react';
 import AppRouter from './routers/AppRouter';
+/* Se importa AuthProvider para poder pasar todos sus estados a sus paginas hijas 
+que se encuentren dentro de ese componente*/
+import { AuthProvider } from './context/AuthContext';
 
 /* Se importa el Product state de manera default */
 import ProductState from './context/ProductState';
@@ -7,7 +10,7 @@ import ProductState from './context/ProductState';
 /* Aquí importo el modulo de bootstrap5 */
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { AuthProvider } from './context/AuthContext';
+
 
 
 /* Importando paypal */
