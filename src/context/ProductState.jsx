@@ -17,8 +17,7 @@ import {
 /* Se crea el estado inicial de mi objeto Producto */
 const initialState = {
     products: [],
-    /* Se añadade otra variable de estado iniciar la cual es de tipo objeto ya que solo traera al info
-    de un solo producto */
+    /* Se añadade otra variable de estado iniciar la cual es de tipo objeto ya que solo traera al info de un solo producto */
     product: {},
     cart: [],
 }

@@ -10,7 +10,8 @@ import ProductState from './context/ProductState';
 /* Aquí importo el modulo de bootstrap5 */
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-
+/* Importo mis estilos css */
+import './components/styles/styleSweetAlert.css';
 
 
 /* Importando paypal */

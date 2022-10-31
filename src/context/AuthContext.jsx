@@ -1,19 +1,53 @@
-/* Importanto useState para el manejo del estado inicial
-   Importando useContext para el uso del archivo AuthContext 
-*/
+// Importanto useState para el manejo del estado inicial
+// Importando useContext para el uso del archivo AuthContext 
+
 import React, { useState, createContext, useCallback } from "react";
-/*Importando las funciones que se encuentran dentronde 
-  AuthService (conexion con la apiBackEnd)
-*/
+/*Importando las funciones que se encuentran dentronde  AuthService (conexion con la apiBackEnd) */
 import {
   loginService,
   signupSerivce,
   verifyingTokenService,
 } from "../services/authServices";
+/* Importando sweetalert */
+import Swal from 'sweetalert2';
 
-/* Creando el context (AuthContext y poder pasar su información)
-  a sus paginas hijas */
+/* Creando el context (AuthContext y poder pasar su información) a sus paginas hijas */
+
 export const AuthContext = createContext({});
+
+// const succesAlert = async (message) =>{
+//     // Swal.fire({
+//     //   position: 'center',
+//     //   icon: 'error',
+//     //   title: message,
+//     //   showConfirmButton: false,
+//     //   timer: 2000,
+//     //   timerProgressBar: true
+//     // })
+
+// }
+
+
+
+const dangerAlert = async (message) =>{
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    iconColor: 'white',
+    customClass: {
+      popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 1500,
+   // timerProgressBar: true
+  })
+
+  await Toast.fire({
+    icon: 'error',
+    title: message
+  })
+}
+
 
 /* Declarando el estado inicial de mi objeto (user)*/
 const intialState = {
@@ -30,20 +64,24 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(intialState);
 
   const login = async (form) => {
-    /* En esta parte lo que se hace ahora es que se hara uso del servicio de authService para que ahora
+    try {
+      /* En esta parte lo que se hace ahora es que se hara uso del servicio de authService para que ahora
         ese authService pase de manera global a todas las demás rutas */
-
-    const data = await loginService(form);
-    setAuth({
-      id: data.data.id,
-      name: data.data.name,
-      lastName: data.data.lastName,
-      email: data.data.email,
-      userName: data.data.userName,
-      password: data.data.password,
-      authStatus: true,
-    });
-    localStorage.setItem("token", data.token);
+      const data = await loginService(form);
+      setAuth({
+        id: data.data.id,
+        name: data.data.name,
+        lastName: data.data.lastName,
+        email: data.data.email,
+        userName: data.data.userName,
+        password: data.data.password,
+        authStatus: true,
+      });
+      localStorage.setItem("token", data.token);
+    } catch (error) {
+      let message = error.response.data.msg;
+      dangerAlert(message);
+    }
   };
 
   const signup = async (form) => {
@@ -63,7 +101,7 @@ export const AuthProvider = ({ children }) => {
 
   const verifyingToken = useCallback(
     async () => {
-      console.log('Ejecuntando la verificación del token')
+      //console.log('Ejecuntando la verificación del token')
       const token = localStorage.getItem("token");
   
       if (token) {
@@ -81,7 +119,7 @@ export const AuthProvider = ({ children }) => {
           authStatus: true,
         });
       } else {
-        console.log("VerifyingToken, no hay token");
+        //console.log("VerifyingToken, no hay token");
         localStorage.removeItem("token");
         setAuth({
           id: null,
