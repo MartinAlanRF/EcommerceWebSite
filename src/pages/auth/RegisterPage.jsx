@@ -10,11 +10,12 @@ const initForm = {
   email: "",
   userName: "",
   password: "",
+  confirm_password: "",
 };
 
 const RegisterPage = () => {
   const [form, setForm] = useState(initForm);
-  const { auth, signup } = useContext(AuthContext);
+  const { signup } = useContext(AuthContext);
   const navigate = useNavigate();
 
 
@@ -33,13 +34,72 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Title titulo="Registro" />
-      <section className="row">
-        <article className="col">
-          <p className="text-center">{auth.id}</p>
-        </article>
-      </section>
-      <main className="row">
+      <Title titulo="Registro de usuarios" />
+      <div id="div_register">
+        <div id="div_login_container" className="row col-lg-8 col-md-8 col-sm-12" >
+          <p>Para poder comprar debes crear una cuenta, solo te tomará menos de un minuto</p>
+          
+          <form id="form_signup" onSubmit={handleForm} >
+
+            <div className="form-group mt-2">
+
+              <div className="row">
+                <div className="col-md-6">
+
+                  <label htmlFor="inputLastName">Apellido(s):</label>
+                  <input type="text" className="form-control" placeholder=" " id="inputLastName" name="lastName" 
+                        value={form.lastName} onChange={cambio} required/>
+                </div>
+                <div className="col-md-6">
+                  <label htmlFor="inputName">Nombre(s):</label>
+                  <input type="text" className="form-control" placeholder=" " id="inputName"
+                        value={form.name} name="name"  onChange={cambio} required />
+                </div>
+              </div>
+
+            </div>
+
+            <div className="form-group mt-2">
+
+              <div className="row">
+                <div className="col-md-6">
+                  <label htmlFor="inputEmail">Correo electrónico(s):</label>
+                  <input type="email" className="form-control" placeholder=" " id="inputEmail" name="email" 
+                        value={form.email} onChange={cambio} required/>
+                </div>
+                <div className="col-md-6">
+                  <label htmlFor="inputUsername">Usuario(s):</label>
+                  <input type="text" className="form-control" placeholder=" " id="inputUsername"
+                        value={form.userName} name="userName" onChange={cambio}  required />
+                </div>
+              </div>
+
+            </div>
+
+            <div className="form-group mt-2">
+
+              <div className="row">
+                <div className="col-md-12">
+                  <label htmlFor="inputPassword">Contraseña:</label>
+                  <input type="password" className="form-control" placeholder=" " id="inputPassword" name="password" 
+                        value={form.password} onChange={cambio} required/>
+                </div>
+
+              </div>
+
+            </div>
+
+            <button type="submit" className="btn btn-primary mt-2">
+              Iniciar sesión
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+
+
+      {/* <main className="row">
         <article className="col">
           <form onSubmit={handleForm}>
           <div className="mb-3">
@@ -113,7 +173,7 @@ const RegisterPage = () => {
           </form>
         </article>
       </main>
-     
+      */}
     </>
   );
 };

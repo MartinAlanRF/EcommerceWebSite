@@ -32,7 +32,8 @@ export const AuthContext = createContext({});
 const dangerAlert = async (message) =>{
   const Toast = Swal.mixin({
     toast: true,
-    position: 'bottom-end',
+    //position: 'bottom-end',
+    position: 'center',
     iconColor: 'white',
     customClass: {
       popup: 'colored-toast'
@@ -66,7 +67,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (form) => {
     try {
       /* En esta parte lo que se hace ahora es que se hara uso del servicio de authService para que ahora
-        ese authService pase de manera global a todas las demás rutas */
+         ese authService pase de manera global a todas las demás rutas */
       const data = await loginService(form);
       setAuth({
         id: data.data.id,
