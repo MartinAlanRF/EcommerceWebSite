@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Title from "../../components/Title";
+/* Importando sweetalert */
+import Swal from 'sweetalert2';
 
 const initForm = {
   name: "",
@@ -17,7 +19,14 @@ const RegisterPage = () => {
  
   const handleForm = async (e) => {
     e.preventDefault();
-    await signup(form);
+
+    if(confirmationPassword()){
+      await signup(form);
+    }else{
+      warningAlert();
+      document.getElementById("inputPassword").value = "";
+      document.getElementById("inputConfirmPassword").value = "";
+    }
 
   };
 
@@ -27,6 +36,40 @@ const RegisterPage = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const confirmationPassword = () =>{
+
+    let bln_response = false;
+    let password = document.getElementById("inputPassword").value;
+    let confirmationPassword = document.getElementById("inputConfirmPassword").value;
+
+    if(password.length !== 0){
+      if(password === confirmationPassword){
+        bln_response = true;
+      }
+    }
+    return bln_response;
+  }
+
+    const warningAlert = async (message) =>{
+      const Toast = Swal.mixin({
+        toast: true,
+        //position: 'bottom-end',
+        position: 'center',
+        iconColor: 'white',
+        customClass: {
+          popup: 'colored-toast'
+        },
+        showConfirmButton: false,
+        timer: 2000,
+      // timerProgressBar: true
+      })
+    
+      await Toast.fire({
+        icon: 'warning',
+        title: 'Las constraseñas no son iguales, intentelo nuevamente.'
+      })
+    }
 
   return (
     <>
@@ -77,6 +120,11 @@ const RegisterPage = () => {
                     <label htmlFor="inputPassword">Contraseña:</label>
                     <input type="password" className="form-control" placeholder=" " id="inputPassword" name="password" 
                           value={form.password} onChange={cambio} required/>
+                  </div>
+                  <div className="col-md-12 mt-2">
+                    <label htmlFor="inputConfirmPassword">Confirma tú contraseña:</label>
+                    <input type="password" className="form-control" placeholder=" " id="inputConfirmPassword" 
+                          name="confirm_password"  required/>
                   </div>
                 </div>
               </div>
