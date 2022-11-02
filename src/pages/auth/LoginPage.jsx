@@ -34,9 +34,9 @@ const LoginPage = () => {
 
   return (
     <>
-  <Title titulo="INICIA SESIÓN" />    
       <div id="div_login">
-        <div id="div_login_container" className="row col-lg-8 col-md-8 col-sm-12" >
+        <Title titulo="Identificate" />   
+        <div id="div_login_container" className="row col-lg-6 col-md-8 col-sm-12" >
 
           <img id="imgUserProfile" src={imgUser} alt="imgloginUser" />
 

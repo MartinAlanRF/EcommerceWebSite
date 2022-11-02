@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #div_login_container{
@@ -17,23 +18,29 @@
    border-color: black; */
 }
 
-/* Estilos para register page */
-
 #imgUserProfile{
     margin-top: 10px;
     max-width: 150px;
     max-height: 150px;
     margin-bottom: 10px;
 }
+/* Estilos para register page */
+
+#div_main{
+    margin-top: 100px;
+}
 
 #div_register{
-    margin-top: 40px;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #div_register_container{
+    padding: 10px;
     justify-content: center;
     border-radius: 15px;
+    border: solid;
+    border-color: red;
 }

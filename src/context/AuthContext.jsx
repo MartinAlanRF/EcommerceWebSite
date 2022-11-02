@@ -39,7 +39,7 @@ const dangerAlert = async (message) =>{
       popup: 'colored-toast'
     },
     showConfirmButton: false,
-    timer: 1500,
+    timer: 2000,
    // timerProgressBar: true
   })
 
@@ -48,6 +48,29 @@ const dangerAlert = async (message) =>{
     title: message
   })
 }
+
+
+const warningAlert = async (message) =>{
+  const Toast = Swal.mixin({
+    toast: true,
+    //position: 'bottom-end',
+    position: 'center',
+    iconColor: 'white',
+    customClass: {
+      popup: 'colored-toast'
+    },
+    showConfirmButton: false,
+    timer: 2000,
+   // timerProgressBar: true
+  })
+
+  await Toast.fire({
+    icon: 'warning',
+    title: message
+  })
+}
+
+
 
 
 /* Declarando el estado inicial de mi objeto (user)*/
@@ -86,18 +109,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (form) => {
-    const data = await signupSerivce(form);
-    setAuth({
-      id: data.data.id,
-      name: data.data.name,
-      lastName: data.data.lastName,
-      email: data.data.email,
-      userName: data.data.userName,
-      password: data.data.password,
-      authStatus: true,
-    });
-
-    localStorage.setItem("token", data.token);
+    try {
+      const data = await signupSerivce(form);
+      setAuth({
+        id: data.data.id,
+        name: data.data.name,
+        lastName: data.data.lastName,
+        email: data.data.email,
+        userName: data.data.userName,
+        password: data.data.password,
+        authStatus: true,
+      });
+  
+      localStorage.setItem("token", data.token);
+    } catch (error) {
+      let message = error.response.data.msg;
+      warningAlert(message);
+    }
   };
 
   const verifyingToken = useCallback(

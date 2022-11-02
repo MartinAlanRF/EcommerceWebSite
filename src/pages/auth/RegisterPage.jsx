@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import Title from "../../components/Title";
-/* Importando useNavigate para redireccionar a una vista */
-import {useNavigate} from 'react-router-dom';
 
 const initForm = {
   name: "",
@@ -16,13 +14,11 @@ const initForm = {
 const RegisterPage = () => {
   const [form, setForm] = useState(initForm);
   const { signup } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-
+ 
   const handleForm = async (e) => {
     e.preventDefault();
     await signup(form);
-    navigate('/');
+
   };
 
   const cambio = (e) => {
@@ -34,69 +30,69 @@ const RegisterPage = () => {
 
   return (
     <>
-      <Title titulo="Registro de usuarios" />
-      <div id="div_register">
-        <div id="div_login_container" className="row col-lg-8 col-md-8 col-sm-12" >
-          <p>Para poder comprar debes crear una cuenta, solo te tomará menos de un minuto</p>
-          
-          <form id="form_signup" onSubmit={handleForm} >
+      <div id="div_main">
+        <Title titulo="Regístrate" />
+        <div id="div_register">
+          <div id="div_register_container" className="row col-lg-6 col-md-8 col-sm-12" >
 
-            <div className="form-group mt-2">
+            <form id="form_signup" onSubmit={handleForm} >
 
-              <div className="row">
-                <div className="col-md-6">
+              <div className="form-group mt-2">
 
-                  <label htmlFor="inputLastName">Apellido(s):</label>
-                  <input type="text" className="form-control" placeholder=" " id="inputLastName" name="lastName" 
-                        value={form.lastName} onChange={cambio} required/>
-                </div>
-                <div className="col-md-6">
-                  <label htmlFor="inputName">Nombre(s):</label>
-                  <input type="text" className="form-control" placeholder=" " id="inputName"
-                        value={form.name} name="name"  onChange={cambio} required />
-                </div>
-              </div>
+                <div className="row">
+                  <div className="col-md-6">
 
-            </div>
-
-            <div className="form-group mt-2">
-
-              <div className="row">
-                <div className="col-md-6">
-                  <label htmlFor="inputEmail">Correo electrónico(s):</label>
-                  <input type="email" className="form-control" placeholder=" " id="inputEmail" name="email" 
-                        value={form.email} onChange={cambio} required/>
-                </div>
-                <div className="col-md-6">
-                  <label htmlFor="inputUsername">Usuario(s):</label>
-                  <input type="text" className="form-control" placeholder=" " id="inputUsername"
-                        value={form.userName} name="userName" onChange={cambio}  required />
-                </div>
-              </div>
-
-            </div>
-
-            <div className="form-group mt-2">
-
-              <div className="row">
-                <div className="col-md-12">
-                  <label htmlFor="inputPassword">Contraseña:</label>
-                  <input type="password" className="form-control" placeholder=" " id="inputPassword" name="password" 
-                        value={form.password} onChange={cambio} required/>
+                    <label htmlFor="inputLastName">Apellido(s):</label>
+                    <input type="text" className="form-control" placeholder=" " id="inputLastName" name="lastName" 
+                          value={form.lastName} onChange={cambio} required/>
+                  </div>
+                  <div className="col-md-6">
+                    <label htmlFor="inputName">Nombre(s):</label>
+                    <input type="text" className="form-control" placeholder=" " id="inputName"
+                          value={form.name} name="name"  onChange={cambio} required />
+                  </div>
                 </div>
 
               </div>
 
-            </div>
+              <div className="form-group mt-2">
+                <div className="row">
+                  <div className="col-md-6">
+                    <label htmlFor="inputEmail">Correo electrónico(s):</label>
+                    <input type="email" className="form-control" placeholder=" " id="inputEmail" name="email" 
+                          value={form.email} onChange={cambio} required/>
+                  </div>
+                  <div className="col-md-6">
+                    <label htmlFor="inputUsername">Usuario(s):</label>
+                    <input type="text" className="form-control" placeholder=" " id="inputUsername"
+                          value={form.userName} name="userName" onChange={cambio}  required />
+                  </div>
+                </div>
 
-            <button type="submit" className="btn btn-primary mt-2">
-              Iniciar sesión
-            </button>
+              </div>
 
-          </form>
+              <div className="form-group mt-2">
+                <div className="row">
+                  <div className="col-md-12">
+                    <label htmlFor="inputPassword">Contraseña:</label>
+                    <input type="password" className="form-control" placeholder=" " id="inputPassword" name="password" 
+                          value={form.password} onChange={cambio} required/>
+                  </div>
+                </div>
+              </div>
+
+              <div className=" form-group d-flex justify-content-center mt-3 col-lg-12 col-md-12 col-sm-12 ">
+                  <button  type="submit" className=" col-8 btn btn-success">
+                    Registrase
+                  </button>
+                </div>
+
+            </form>
+
+
+          </div>
         </div>
       </div>
-
 
 
       {/* <main className="row">

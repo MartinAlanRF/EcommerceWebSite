@@ -3,7 +3,7 @@ import React from 'react'
 const Title = ({titulo}) => {
   return (
     <header className='row col mt-3'>
-        <h1 className='text-center'>{titulo}</h1>
+        <h2 className='text-center'>{titulo}</h2>
     </header>
   )
 }
