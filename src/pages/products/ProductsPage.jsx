@@ -12,8 +12,12 @@ const ProductsPage = () => {
   return (
     <>
       <Title titulo={"Productos"} />
-        <ProductForm/>
-        <ProductList/>
+      <ProductForm/>
+        <div className="container text-center  align-items-center h-100 ">
+          <div className="row">
+            <ProductList/>
+           </div>
+        </div>
     </>
   );
 };

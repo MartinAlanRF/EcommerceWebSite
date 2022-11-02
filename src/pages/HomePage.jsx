@@ -24,7 +24,7 @@ const HomePage = () => {
         {/* Categorías productos que vendemos */}
         <div className="container-fluid p1">
           <div className="row">
-            <div class="col-lg-6 order-lg-2 text-white seccionProducto1"></div>
+            <div className="col-lg-6 order-lg-2 text-white seccionProducto1"></div>
             <div className="col-lg-6 order-lg-1 my-auto p-5 text-justify seccionText">
               <h2>Fully Responsive Design</h2>
               <p className="lead mb-0">
@@ -35,7 +35,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row">
-            <div class="col-lg-6 order-lg-1 text-white seccionProducto2"></div>
+            <div className="col-lg-6 order-lg-1 text-white seccionProducto2"></div>
             <div className="col-lg-6 order-lg-2 my-auto p-5 text-justify seccionText">
               <h2>Fully Responsive Design</h2>
               <p className="lead mb-0">
@@ -46,7 +46,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row">
-            <div class="col-lg-6 order-lg-2 text-white seccionProducto3"></div>
+            <div className="col-lg-6 order-lg-2 text-white seccionProducto3"></div>
             <div className="col-lg-6 order-lg-1 my-auto p-5 text-justify seccionText">
               <h2>Fully Responsive Design</h2>
               <p className="lead mb-0">
