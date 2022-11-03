@@ -10,15 +10,11 @@ const ProductPage = () => {
   const {product, obtenerProducto, agregarProductoCarrito } = useContext(ProductContext)
 
   useEffect(() => {
-    /* Nota aquí no es necesario colocar el await debido a que ya cuenta con el await 
-    desde el productoState */
-    //console.log(id)
     obtenerProducto(id);
   }, [id, obtenerProducto]);
 
   const handleAgregarProductoCarrito = () => {
     agregarProductoCarrito(product);
-    //console.log(product);
   };
 
   return (
@@ -45,7 +41,7 @@ const ProductPage = () => {
                 className="btn btn-primary"
                onClick={handleAgregarProductoCarrito}
               >
-                Agregar al carrito
+                <i class="bi bi-cart"></i> Agregar al carrito
               </button>
             </div>
           </div>

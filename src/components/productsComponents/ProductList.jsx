@@ -30,7 +30,7 @@ const ProductList = () => {
 
   const [pageNumber, setPageNumber] = useState(0);
 
-  const productPerPage = 3;
+  const productPerPage = 6;
   const pagesVisited = pageNumber * productPerPage
 
   const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage).map((product) => {
@@ -44,18 +44,18 @@ const ProductList = () => {
                   <h5 className="card-title">{product.name}</h5>
                   <p className="text-muted mb-4">{product.description}</p>
                   <br />
-                  <p className="text-muted mb-4">{product.price}</p>
+                  <h5 className="">$ {product.price} mxn</h5>
                 </div>
                 
-              <div className="d-flex align-items-center">
-                <div className="col-6">
-                  <NavLink to={`/products/${product.id}`} className=" w-75 btn btn-info">
-                    Ver
+              <div className="d-flex justify-content-center mt-4">
+                <div className="col-4">
+                  <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
+                  <i class="bi bi-eye"></i> 
                   </NavLink>     
                 </div>
-                <div className="col-6">
-                  <button className="btn btn-danger w-75" onClick={()=> eliminarProducto(product.id)}>
-                    Eliminar
+                <div className="col-4">
+                  <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
+                  <i class="bi bi-trash"></i> 
                   </button>
                 </div>
               </div>
@@ -79,7 +79,7 @@ const ProductList = () => {
         previousLabel={"<<"} nextLabel={">>"} 
         pageCount={pageCount} onPageChange={changePage} containerClassName ={"paginationBttns"} 
         previousLinkClassName={"previousBttn"} nextLinkClassName={"nextBttn"}
-        disabledClassName={"paginationDisable"} activeClassName={"paginationAvtive"}/>
+        disabledClassName={"paginationDisable"} activeClassName={"paginationActive"}/>
     </>
   );
 };

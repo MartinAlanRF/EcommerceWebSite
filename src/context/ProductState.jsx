@@ -48,6 +48,25 @@ const succesAlert = async (message) =>{
     })
   }
 
+  const warningAlert = async (message) =>{
+    const Toast = Swal.mixin({
+      toast: true,
+      //position: 'bottom-end',
+      position: 'center',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 2000,
+     // timerProgressBar: true
+    })
+  
+    await Toast.fire({
+      icon: 'warning',
+      title: message
+    })
+  }
 
 /* Recibe todos los componentes que se encuentren dentro de auth provider */
 const ProductState = ({children}) => {
@@ -145,13 +164,18 @@ const ProductState = ({children}) => {
         const productoEncontrado = globalState.cart.find(
           (producto) => product.id === producto.id
         );
-    
+        //Esta condición se ocupara para no repetir los productos 
+        // dentro del carrito en caso de que ya exista
+        // pero debería de añadir un contador 
         if (!productoEncontrado) {
           //console.log(product)
           dispatch({
             type: "AGREGAR_PRODUCTO_CARRITO",
             payload: product,
           });
+          succesAlert('Producto añadido al carrito')
+        }else{
+            warningAlert('Este producto ya esta dentro de tú carrito de compras.')
         }
       };
     

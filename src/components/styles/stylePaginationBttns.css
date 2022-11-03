@@ -24,10 +24,10 @@
 }
 
 .paginationActive a{
-    color: #fff;
-    background-color: #2b2eff ; 
+    color: #fff !important;
+    background-color: #3a8c9b !important; 
 }
 
-.paginationActive a:link, a:visited, a:active {
+.paginationActive a:link, a:visited{
     text-decoration:none;
 }
