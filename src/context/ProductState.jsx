@@ -14,6 +14,10 @@ import {
     eliminarProductoService,
 } from '../services/productServices.js';
 
+/* Importando sweetalert */
+import Swal from 'sweetalert2';
+
+
 /* Se crea el estado inicial de mi objeto Producto */
 const initialState = {
     products: [],
@@ -21,6 +25,29 @@ const initialState = {
     product: {},
     cart: [],
 }
+
+/* FUNCIONES DE SWEET ALERT */
+
+const succesAlert = async (message) =>{
+    const Toast = Swal.mixin({
+      toast: true,
+      //position: 'bottom-end',
+      position: 'center',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 2000,
+     // timerProgressBar: true
+    })
+  
+    await Toast.fire({
+      icon: 'success',
+      title: message
+    })
+  }
+
 
 /* Recibe todos los componentes que se encuentren dentro de auth provider */
 const ProductState = ({children}) => {
@@ -132,9 +159,10 @@ const ProductState = ({children}) => {
     /* Función para eliminar un producto del carrito de compras */
     const eliminarProductoCarrito = (id) =>{
         dispatch({
-          type: "ELIMINAR_PRODUCTO_CARRITO",
-          payload: id,
-        });
+            type: "ELIMINAR_PRODUCTO_CARRITO",
+            payload: id,
+          });
+        succesAlert('Producto eliminado del carrtito');  
       }
 
     return (

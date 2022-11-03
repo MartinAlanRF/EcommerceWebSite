@@ -17,42 +17,67 @@ const CartPage = () => {
 
   return (
    <>
-      <Title titulo="Carrito de compras" />
-      <main className="row pt-5">
-        <article className="col-md-12">
-          <CartList />
-        </article>
-      </main>
-      {/* Pregunta si la longitud del arreglo de carritto es mayor a 0 
-        Si lo es muestra los articulos 
-      */}
-      {cart.length > 0 ? (
-          <>
-            <section className="row pt-5">
-              <article className="col-md-12">
-                <h2>{total}</h2>
-              </article>
-            </section>
-            <section className="row">
-              <article className="col">
-                <PaypalCheckoutButton
-                  currency={"MXN"}
-                  amount={total}
-                  showSpinner={false}
-                />
-              </article>
-            </section>
-          </>
-        ) : (
-          <section className="row">
-            <article className="col">
-              <h2>No hay productos en el carrito</h2>
-            </article>
-          </section>
-        )}
+      <Title titulo="Tu carrito de compras" />
+      <section className="h-100" style={{backgroundColor: '#eee'}}>
+        <div className="container py-2 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+            <div className="col">
+              <div className="card">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-lg-7">
+                    {cart.length > 0 ? (
+                      <>
+                        <CartList />
+                      </>
+                    ) : (
+                      <section className="text-center">
+                        <h3>¡No tienes productos aun en tu carrito!</h3>
+                      </section>
+                    )
+                    }
+                    </div>
+                    <div className="col-lg-5">
+                      {cart.length > 0 ? (
+                          <>
+                            <section className="row pt-1">
+                              <article className="col-md-12 text-center">
+                                <h2>Total a pagar: ${total} mxn </h2>
+                              </article>
+                            </section>
+                            <section className="row">
+                              <article className="col mt-5">
+                                <PaypalCheckoutButton
+                                  currency={"MXN"}
+                                  amount={total}
+                                  showSpinner={false}
+                                />
+                              </article>
+                            </section>
+                          </>
+                        ) : (                            
+                              <section className="text-center">
+                                  <article>
+                                    <h2> ${total} mxn </h2>
+                                  </article>
+                              </section>)}
+                    </div>
+
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </section>
+
+      
+    
+
 
     </>
   )
 }
 
-export default CartPage
+export default CartPage;
