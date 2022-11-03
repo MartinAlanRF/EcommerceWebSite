@@ -11,13 +11,13 @@ import '../../components/styles/styleProducts.css';
 const ProductsPage = () => {
   return (
     <>
-      <Title titulo={"Productos"} />
-      <ProductForm/>
+      <Title titulo={"Nuestro catálogo"} />
         <div className="container text-center  align-items-center h-100 ">
           <div className="row">
             <ProductList/>
            </div>
         </div>
+        <ProductForm/>
     </>
   );
 };

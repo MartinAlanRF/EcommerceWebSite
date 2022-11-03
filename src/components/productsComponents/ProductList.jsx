@@ -36,33 +36,32 @@ const ProductList = () => {
   const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage).map((product) => {
     return  (
       <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-2" key={product.id} >
-            <div className="card text-black"  >
-              <i className="fab fa-apple fa-lg pt-3 pb-1 px-3" />
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
-              <div className="card-body">
-                <div className="text-center">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="text-muted mb-4">{product.description}</p>
-                  <br />
-                  <h5 className="">$ {product.price} mxn</h5>
-                </div>
-                
-              <div className="d-flex justify-content-center mt-4">
-                <div className="col-4">
-                  <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
-                  <i class="bi bi-eye"></i> 
-                  </NavLink>     
-                </div>
-                <div className="col-4">
-                  <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
-                  <i class="bi bi-trash"></i> 
-                  </button>
-                </div>
-              </div>
-              </div>
+        <div className="card text-black"  >
+          <i className="fab fa-apple fa-lg pt-3 pb-1 px-3" />
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
+          <div className="card-body">
+            <div className="text-center">
+              <h5 className="card-title">{product.name}</h5>
+              <p className="text-muted mb-4">{product.description}</p>
+              <br />
+              <h5 className="">$ {product.price} mxn</h5>
             </div>
-          </div>        
-
+            
+          <div className="d-flex justify-content-center mt-4">
+            <div className="col-4">
+              <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
+              <i class="bi bi-eye"></i> 
+              </NavLink>     
+            </div>
+            <div className="col-4">
+              <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
+              <i class="bi bi-trash"></i> 
+              </button>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>        
     );
   });
 

@@ -20,35 +20,42 @@ const ProductPage = () => {
   return (
     <>
       <Title titulo="Pagina de producto" />
-      <main className="row pt-5">
-        <article className="col-md-4">
-          <ProductFormEdit/>
-        </article>
-        <article className="col-md-8">
-          <div className="card" style={{ width: "18rem" }}>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/1200px-Imagen_no_disponible.svg.png"
-              className="card-img-top"
-              alt={"Laptop"}
-            />
-            <div className="card-body text-center">
-              <h5 className="card-title">{product.name}</h5>
-              <p className="card-text">{product.id}</p>
-              <p className="card-text">{product.description}</p>
-              <p className="card-text">{product.price}</p>
-              <button
-                type="button"
-                className="btn btn-primary"
-               onClick={handleAgregarProductoCarrito}
-              >
-                <i class="bi bi-cart"></i> Agregar al carrito
-              </button>
-            </div>
-          </div>
-        </article>
-      </main>
+
+      <div className="d-flex justify-content-center text-center h-100 ">
+        <div className="row">
+
+            <div className="col-sm-12 col-md-10 col-lg-10  mx-auto mb-2" key={product.id} >
+              <div className="card text-black"  >
+                <i className="fab fa-apple fa-lg pt-3 pb-1 px-3" />
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
+                <div className="card-body">
+                  <div className="text-center">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="text-muted mb-4">{product.description}</p>
+                    <br />
+                    <h5 className="">$ {product.price} mxn</h5>
+                  </div>
+                  
+                <div className="d-flex justify-content-center mt-4">
+                  <div className="col-12">
+                    <button type="button" className="btn btn-success w-75" onClick={handleAgregarProductoCarrito}>
+                      <i class="bi bi-cart"></i> Agregar al carrito
+                    </button>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>   
+        </div>
+      </div>
+      <div className="row ">
+            <article className="col-md-12 col-lg-12">
+              <ProductFormEdit/>
+            </article>
+        </div>
     </>
   )
 }
 
-export default ProductPage
+export default ProductPage;
+
