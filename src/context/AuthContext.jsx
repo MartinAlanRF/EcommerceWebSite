@@ -1,6 +1,5 @@
 // Importanto useState para el manejo del estado inicial
 // Importando useContext para el uso del archivo AuthContext 
-
 import React, { useState, createContext, useCallback } from "react";
 /*Importando las funciones que se encuentran dentronde  AuthService (conexion con la apiBackEnd) */
 import {
@@ -14,20 +13,6 @@ import Swal from 'sweetalert2';
 /* Creando el context (AuthContext y poder pasar su información) a sus paginas hijas */
 
 export const AuthContext = createContext({});
-
-// const succesAlert = async (message) =>{
-//     // Swal.fire({
-//     //   position: 'center',
-//     //   icon: 'error',
-//     //   title: message,
-//     //   showConfirmButton: false,
-//     //   timer: 2000,
-//     //   timerProgressBar: true
-//     // })
-
-// }
-
-
 
 const dangerAlert = async (message) =>{
   const Toast = Swal.mixin({
@@ -70,16 +55,14 @@ const warningAlert = async (message) =>{
   })
 }
 
-
-
-
 /* Declarando el estado inicial de mi objeto (user)*/
 const intialState = {
   id: null,
   email: null,
-  username: null,
+  userName: null,
   password: null,
   authStatus: false,
+  rol: null,
 };
 
 /* Recibe todos los componentes que se encuentren dentro de auth provider */
@@ -100,6 +83,7 @@ export const AuthProvider = ({ children }) => {
         userName: data.data.userName,
         password: data.data.password,
         authStatus: true,
+        rol: data.data.rol,
       });
       localStorage.setItem("token", data.token);
     } catch (error) {
@@ -111,6 +95,7 @@ export const AuthProvider = ({ children }) => {
   const signup = async (form) => {
     try {
       const data = await signupSerivce(form);
+      console.log(data)
       setAuth({
         id: data.data.id,
         name: data.data.name,
@@ -119,6 +104,7 @@ export const AuthProvider = ({ children }) => {
         userName: data.data.userName,
         password: data.data.password,
         authStatus: true,
+        rol: data.data.rol,
       });
   
       localStorage.setItem("token", data.token);
@@ -134,7 +120,7 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem("token");
   
       if (token) {
-        console.log("ejecutando verifyingToken");
+       // console.log("ejecutando verifyingToken");
         const resp = await verifyingTokenService();
         localStorage.setItem("token", resp.token);
   
@@ -142,10 +128,11 @@ export const AuthProvider = ({ children }) => {
           id: resp.data.id,
           name: resp.data.name,
           lastName: resp.data.lastName,
-          username: resp.data.username,
+          userName: resp.data.userName,
           email: resp.data.email,
           password: resp.data.password,
           authStatus: true,
+          rol:resp.data.rol,
         });
       } else {
         //console.log("VerifyingToken, no hay token");
@@ -154,10 +141,11 @@ export const AuthProvider = ({ children }) => {
           id: null,
           name: null,
           lastName: null,
-          username: null,
+          userName: null,
           email: null,
           password: null,
           authStatus: false,
+          rol: null,
         });
       }
     },
@@ -208,6 +196,7 @@ export const AuthProvider = ({ children }) => {
       email: null,
       password: null,
       authStatus: false,
+      rol: null,
     });
   };
 

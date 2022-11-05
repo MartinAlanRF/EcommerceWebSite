@@ -11,6 +11,7 @@ const initForm = {
   userName: "",
   password: "",
   confirm_password: "",
+  rol: "user"
 };
 
 const RegisterPage = () => {
@@ -19,7 +20,7 @@ const RegisterPage = () => {
  
   const handleForm = async (e) => {
     e.preventDefault();
-
+    console.log (form);
     if(confirmationPassword()){
       await signup(form);
     }else{

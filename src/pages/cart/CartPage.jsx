@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from "react";
 import ProductContext from "../../context/ProductContext";
 import Title from "../../components/Title";
-import CartList from "../../components/cart/CartList";
+import CartList from "../../components/cartComponents/CartList";
 import PaypalCheckoutButton from "../../components/paypal/PaypalCheckoutButton";
 
 const CartPage = () => {
@@ -17,7 +17,7 @@ const CartPage = () => {
 
   return (
    <>
-      <Title titulo="Tu carrito de compras" />
+       <Title titulo="Tú carrito de compras" />
       <section className="h-100" style={{backgroundColor: '#eee'}}>
         <div className="container py-2 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">

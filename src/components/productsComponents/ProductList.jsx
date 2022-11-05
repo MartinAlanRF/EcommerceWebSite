@@ -3,9 +3,10 @@ import React, { useState, useContext, useEffect } from "react";
 import ProductContext from "../../context/ProductContext";
 /* Importando navlink para poder navegar al ver la info del producto */
 import { NavLink } from "react-router-dom";
-
 /*  */
 import ReactPaginate from "react-paginate";
+import { AuthContext } from "../../context/AuthContext";
+
 /* Estilo para los botones */
 import '../styles/stylePaginationBttns.css';
 
@@ -22,6 +23,9 @@ const ProductList = () => {
   //   console.log(id)
   // }
     */
+
+  const {auth} = useContext(AuthContext);
+
   const { products, obtenerProductos,eliminarProducto } = useContext(ProductContext);
 
   useEffect(() => {
@@ -41,6 +45,7 @@ const ProductList = () => {
           <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
           <div className="card-body">
             <div className="text-center">
+
               <h5 className="card-title">{product.name}</h5>
               <p className="text-muted mb-4">{product.description}</p>
               <br />
@@ -50,14 +55,18 @@ const ProductList = () => {
           <div className="d-flex justify-content-center mt-4">
             <div className="col-4">
               <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
-              <i class="bi bi-eye"></i> 
+                Detalles
               </NavLink>     
             </div>
-            <div className="col-4">
-              <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
-              <i class="bi bi-trash"></i> 
-              </button>
-            </div>
+            {auth.rol === 'admin' ? 
+            <> 
+              <div className="col-4">
+                <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
+                <i class="bi bi-trash"></i> 
+                </button>
+              </div>
+            </>
+            : <></>}
           </div>
           </div>
         </div>

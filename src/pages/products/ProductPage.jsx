@@ -1,6 +1,8 @@
 
 import React, { useEffect, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import ProductContext from "../../context/ProductContext"
+
 import Title from '../../components/Title'
 import ProductFormEdit from "../../components/productsComponents/ProductFormEdit";
 import { useParams } from "react-router-dom";
@@ -8,6 +10,7 @@ import { useParams } from "react-router-dom";
 const ProductPage = () => {
   const { id } = useParams();
   const {product, obtenerProducto, agregarProductoCarrito } = useContext(ProductContext)
+  const {auth} = useContext(AuthContext)
 
   useEffect(() => {
     obtenerProducto(id);
@@ -19,7 +22,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Title titulo="Pagina de producto" />
+      <Title titulo={product.name} />
 
       <div className="d-flex justify-content-center text-center h-100 ">
         <div className="row">
@@ -48,11 +51,17 @@ const ProductPage = () => {
             </div>   
         </div>
       </div>
-      <div className="row ">
-            <article className="col-md-12 col-lg-12">
+      {auth.rol === 'admin' ? 
+        <> {/* Si el rol es admin muestra un formulario pra poder editar el producto en cuestión */}
+          <div className="row ">
+            <div className="col-md-12 col-lg-12">
               <ProductFormEdit/>
-            </article>
-        </div>
+            </div>
+          </div>
+        </>
+          : 
+        <>{/* En caso del que no sea admin el sistema no mostrará el formulario */}
+        </>}
     </>
   )
 }

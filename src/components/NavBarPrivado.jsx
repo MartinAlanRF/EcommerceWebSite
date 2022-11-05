@@ -97,7 +97,8 @@ const NavBarPrivado = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    {auth.userName ? auth.userName : "Cuenta"}
+                    {/* {auth.userName ? auth.userName : "Cuenta"} */}
+                    {auth.userName}
                   </a>
                   <ul className="dropdown-menu dropdown-menu-end">
                     <li>
