@@ -20,7 +20,6 @@ const RegisterPage = () => {
  
   const handleForm = async (e) => {
     e.preventDefault();
-    console.log (form);
     if(confirmationPassword()){
       await signup(form);
     }else{
