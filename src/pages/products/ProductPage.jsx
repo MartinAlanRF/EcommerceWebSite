@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import ProductContext from "../../context/ProductContext"
 
-/* import Title from '../../components/Title' */
+
 import ProductFormEdit from "../../components/productsComponents/ProductFormEdit";
 import { useParams } from "react-router-dom";
 
@@ -24,41 +24,41 @@ const ProductPage = () => {
     <>
       {/* <Title titulo={product.name} /> */}
 
-      <div className="d-flex justify-content-center text-center h-100 ">
-        <div className="row">
-
-          <div className="col-sm-12 col-md-10 col-lg-10  mx-auto mb-2" key={product.id} >
-            <div className="card text-black"  >
-              <i className="fab fa-apple fa-lg pt-3 pb-1 px-3" />
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="card-img-top" alt="Apple Computer" />
-              <div className="card-body">
-                <div className="text-center">
-                  <h5 className="card-title">{product.name}</h5>
-                  <p className="text-muted mb-4">{product.description}</p>
-                  <br />
-                  <h5 className="">$ {product.price} mxn</h5>
-                </div>
-
-                <div className="d-flex justify-content-center mt-4">
-                  <div className="col-12">
-                    <button type="button" className="btn btn-success w-75" onClick={handleAgregarProductoCarrito}>
-                      <i className="bi bi-cart"></i> Agregar al carrito
-                    </button>
-                    {/* Pregunta si el usuario es admnistrador */}
-                    {auth.rol === 'admin' ?
-                      <> {/* Si el rol es admin muestra un formulario pra poder añadir más productos */}
-                        <ProductFormEdit />
-                      </>
-                      :
-                      <>{/* En caso del que no sea admin el sistema no mostrará el formulario */}
-                      </>}
+      <section className='mt-4' style={{backgroundColor: '#eee'}}>
+        <div className="container py-2 h-100">
+          <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-lg-5">
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/3.webp" className="img-fluid rounded-3" alt="Apple Computer" />
+                      </div>
+                      <div className="col-lg-7 mt-auto mb-auto text-center">
+                        <h2 className="card-title">{product.name}</h2>
+                        <h3 className="text-muted  mb-4">{product.description}</h3>
+                        <h1 className="">$ {product.price} mxn</h1>
+                        <section className="mt-4">
+                          <button type="button" className="btn btn-success w-75" onClick={handleAgregarProductoCarrito}>
+                            <i className="bi bi-cart"></i> Agregar al carrito
+                          </button>
+                          {/* Pregunta si el usuario es admnistrador */}
+                          {auth.rol === 'admin' ?
+                            <> {/* Si el rol es admin muestra un formulario pra poder añadir más productos */}
+                              <ProductFormEdit />
+                            </>
+                            :
+                            <>{/* En caso del que no sea admin el sistema no mostrará el formulario */}
+                            </>}
+                        </section>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+          </div> 
         </div>
-      </div>
+      </section>
     </>
   )
 }

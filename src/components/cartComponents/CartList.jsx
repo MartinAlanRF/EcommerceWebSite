@@ -13,7 +13,7 @@ const CartList = () => {
           <div id="div_cart" className="card-body">
             <div className="row d-flex justify-content-between align-items-center">
               <div id="img_cart" className="col-md-3 col-lg-2 col-sm-8">
-                <img  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" className="img-fluid rounded-3" alt="Cotton T-shirt" />
+                <img  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" className="img-fluid rounded-3" alt="product" />
               </div>
 
               <div id="div_productCartText" className="col-md-4 col-lg-4 col-sm-10">
@@ -26,7 +26,7 @@ const CartList = () => {
 
               <div className="col-md-2 col-lg-3 col-sm-12">
                 <NavLink id="btn_seeProductCart" className="btn btn-info w-100 mb-2" to={`/products/${producto.id}`}> 
-                  <i class="bi bi-eye"></i> Ver
+                  <i className="bi bi-eye"></i> Detalles
                 </NavLink>
                 <button id="btn_deleteProductCart" onClick={()=> eliminarProductoCarrito(producto.id)} className="btn btn-danger w-100">
                   <i class="bi bi-x-circle 2"></i> Quitar

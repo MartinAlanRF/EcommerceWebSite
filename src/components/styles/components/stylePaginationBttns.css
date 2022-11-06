@@ -5,27 +5,26 @@
     list-style: none;
     display: flex;
     justify-content: center;
-    color: purple;
 }
 
 .paginationBttns a{
     padding: 8px;
     margin: 8px;
-    border-radius: 4px;
-    border: 1px solid #000000;
-    color: #0004ff !important;
+    border-radius: 8px;
+    border: 1px solid #000000be;
+    color: #000000 !important;
     cursor: pointer;
     text-decoration: none;
 }
 
 .paginationBttns a:hover{
-    color: #000000;
-    background-color: #54e0f8 ;
+    color: #ffffff !important;
+    background-color: #0278ff ;
 }
 
 .paginationActive a{
-    color: #fff !important;
-    background-color: #3a8c9b !important; 
+    color: #ffffff !important;
+    background-color: #0278ff !important; 
 }
 
 .paginationActive a:link, a:visited{

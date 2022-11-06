@@ -22,7 +22,7 @@ const CartPage = () => {
   return (
    <>
        <Title titulo="Tú carrito de compras" />
-      <section className="h-100" style={{backgroundColor: '#eee'}}>
+      <section className="h-100 mt-4" style={{backgroundColor: '#eee'}}>
         <div className="container py-2 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col">
@@ -41,23 +41,23 @@ const CartPage = () => {
                     )
                     }
                     </div>
-                    <div className="col-lg-5 mx-auto  mt-4">
+                    <div className="col-lg-5 mx-auto mt-auto mb-auto">
                       {cart.length > 0 ? (
                           <>
-                            <section className="row pt-1">
-                              <article className="col-md-12 text-center">
-                                <h2>Total a pagar: ${total} mxn </h2>
-                              </article>
-                            </section>
-                            <section className="row">
-                              <article className="col mt-5">
-                                <PaypalCheckoutButton
-                                  currency={"MXN"}
-                                  amount={total}
-                                  showSpinner={false}
-                                />
-                              </article>
-                            </section>
+                              <section className="row mb-5">
+                                <article className="col-md-12 text-center">
+                                  <h2>Total a pagar: ${total} mxn </h2>
+                                </article>
+                              </section>
+                              <section className="row">
+                                <article className="col">
+                                  <PaypalCheckoutButton
+                                    currency={"MXN"}
+                                    amount={total}
+                                    showSpinner={false}
+                                  />
+                                </article>
+                              </section>
                           </>
                         ) : (                            
                               <section className="text-center">
