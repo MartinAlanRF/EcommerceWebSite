@@ -41,7 +41,7 @@ const ProductList = () => {
 
   const displayProducts = products.slice(pagesVisited, pagesVisited + productPerPage).map((product) => {
     return  (
-      <div className="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-2" key={product.id} >
+      <div className="col-sm-12 col-md-8 col-lg-4 col-xl-4 mb-2" key={product.id} >
         <div className="card text-black"  >
           <img id="img_cardProduct" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/240px-Imagen_no_disponible.svg.png" className="card-img-top" alt="Producto" />
           <div className="card-body">

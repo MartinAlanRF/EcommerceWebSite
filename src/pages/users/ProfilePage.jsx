@@ -10,7 +10,7 @@ const ProfilePage = () => {
     <>
       <Title titulo="Perfil" />
 
-      <div className="col-lg-10 col-md-8 col-sm-12 ms-auto me-auto mb-3">
+      <div className="col-lg-10 col-md-10 col-sm-10 ms-auto me-auto mb-3">
         <div className="card">
           <div className="card-body">
             <div className="d-flex flex-column align-items-center text-center">
@@ -18,7 +18,6 @@ const ProfilePage = () => {
               <div className="mt-3">
                 <h4>{auth.name}  {auth.lastName}</h4>
                 <p className="text-secondary mb-1">{auth.userName}</p>
-                <p className="text-secondary mb-1">{auth.rol}</p>
                 <p className="text-muted font-size-sm">{auth.email}</p>
               </div>
             </div>
