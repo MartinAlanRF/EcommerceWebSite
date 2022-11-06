@@ -24,7 +24,7 @@ const ProductPage = () => {
     <>
       {/* <Title titulo={product.name} /> */}
 
-      <section className='mt-4' style={{backgroundColor: '#eee'}}>
+      <section className='mt-4' style={{backgroundColor: '#eee', borderRadius: '8px' }}>
         <div className="container py-2 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
               <div className="col">

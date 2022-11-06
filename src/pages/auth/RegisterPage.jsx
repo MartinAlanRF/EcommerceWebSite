@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
-import Title from "../../components/Title";
+/* import Title from "../../components/Title"; */
 /* Importando sweetalert */
 import Swal from 'sweetalert2';
 
@@ -73,10 +73,14 @@ const RegisterPage = () => {
 
   return (
     <>
-      <div id="div_main">
-        <Title titulo="Regístrate" />
-        <div id="div_register">
-          <div id="div_register_container" className="row col-lg-6 col-md-8 col-sm-12" >
+
+<div id="div_register">
+          <div className="row col-8">
+            <div className="col-12 mb-3 border border-3 border-top-0 border-start-0 border-end-0 border-dark">
+            <h2 className='text-center'>REGISTRO</h2>
+            </div>
+          </div>
+          <div id="div_register_container" className="row col-lg-10 col-md-10 col-sm-12 border border-dark p-2 mb-2 border-opacity-75" >
 
             <form id="form_signup" onSubmit={handleForm} >
 
@@ -131,7 +135,7 @@ const RegisterPage = () => {
 
               <div className=" form-group d-flex justify-content-center mt-3 col-lg-12 col-md-12 col-sm-12 ">
                   <button  type="submit" className=" col-8 btn btn-success">
-                  <i class="bi bi-box-arrow-in-right"></i>  Registrarse
+                  <i className="bi bi-box-arrow-in-right"></i>  Registrarse
                   </button>
                 </div>
 
@@ -140,8 +144,6 @@ const RegisterPage = () => {
 
           </div>
         </div>
-      </div>
-
 
       {/* <main className="row">
         <article className="col">

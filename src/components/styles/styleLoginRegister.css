@@ -1,5 +1,9 @@
+
+/* Estilos para login page */
 #div_login{
-    margin-top: 50px;
+    margin-top: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,15 +11,14 @@
 }
 
 #div_login_container{
+    background: rgb(229,236,242);
+    background: linear-gradient(304deg, rgba(229,236,242,0.7906512946975666) 4%, rgba(255,253,254,1) 100%);
     justify-content: center;
- /*    background: #909ea7; */
     border-radius: 15px;
 }
 
 #div_login_form{
    padding: 10px;
-   /* border: solid;
-   border-color: black; */
 }
 
 #imgUserProfile{
@@ -24,23 +27,23 @@
     max-height: 150px;
     margin-bottom: 10px;
 }
+
+
 /* Estilos para register page */
 
-#div_main{
-    margin-top: 100px;
-}
-
 #div_register{
-    margin-top: 0px;
+    margin-top: 80px;
+    margin-right: 10px;
+    margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #div_register_container{
-    padding: 10px;
+    background: rgb(229,236,242);
+    background: linear-gradient(304deg, rgba(229,236,242,0.7906512946975666) 4%, rgba(255,253,254,1) 100%);
     justify-content: center;
     border-radius: 15px;
-    border: solid;
-    border-color: red;
 }
