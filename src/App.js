@@ -14,7 +14,8 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 /* Importo mis estilos css */
-import './components/styles/styleSweetAlert.css';
+import './components/styles/components/styleSweetAlert.css';
+
 
 
 /* Importando paypal */

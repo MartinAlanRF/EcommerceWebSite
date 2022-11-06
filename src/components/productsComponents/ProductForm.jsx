@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 /* Importando sweetalert */
 import Swal from 'sweetalert2';
+/* Importando el estilo para  ProductsPage */
+import '../../components/styles/products/styleProducts.css';
 
 const initForm = {
   name: "",
@@ -90,8 +92,8 @@ const ProductForm = () => {
 
   return (
     <>
-      <Button className="ms-auto w-25" variant="btn btn-primary" onClick={handleShow}>
-        <i className="bi bi-plus-lg"></i> Nuevo producto
+      <Button id="btn_add" className="ms-auto me-4" variant="primary" onClick={handleShow}>
+        <i className="bi bi-plus-lg"></i> Añadir un producto
       </Button>
       <Modal centered show={show} onHide={handleClose}>
         <Modal.Header closeButton>

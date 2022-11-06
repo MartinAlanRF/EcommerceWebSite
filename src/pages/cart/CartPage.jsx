@@ -4,6 +4,10 @@ import Title from "../../components/Title";
 import CartList from "../../components/cartComponents/CartList";
 import PaypalCheckoutButton from "../../components/paypal/PaypalCheckoutButton";
 
+/* Importando el estilo para  ProductsPage */
+import '../../components/styles/cart/styleCart.css';
+
+
 const CartPage = () => {
   const { cart } = useContext ( ProductContext )
 
@@ -37,7 +41,7 @@ const CartPage = () => {
                     )
                     }
                     </div>
-                    <div className="col-lg-5">
+                    <div className="col-lg-5 mx-auto  mt-4">
                       {cart.length > 0 ? (
                           <>
                             <section className="row pt-1">

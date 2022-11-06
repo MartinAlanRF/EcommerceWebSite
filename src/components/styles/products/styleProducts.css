@@ -1,0 +1,105 @@
+#btn_add{
+  width: 25%;
+  font-size: 18px !important;
+}
+
+@media (max-width: 1200px) {
+  #btn_seeProduct{
+    font-size: 15px !important;
+  }
+  
+  #btn_deleteProduct{
+    font-size: 15px !important;
+  }
+}
+
+
+@media (max-width: 992px) {
+  #btn_add{
+    width: 40%;
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #btn_add{
+    width: 35%;
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 525px) {
+  #btn_add{
+    width: 38%;
+    font-size: 16px !important;
+  }
+}
+
+@media (max-width: 510px) {
+  #btn_add{
+    width: 40%;
+    font-size: 16px !important;
+  }
+}
+
+
+@media (max-width: 484px) {
+  #btn_add{
+    width: 43%;
+    font-size: 16px !important;
+  }
+}
+
+
+@media (max-width: 453px) {
+  #btn_add{
+    width: 45%;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  #btn_add{
+    width: 47%;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  #btn_add{
+    width: 50%;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 375px) {
+  #btn_add{
+    width: 50%;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 335px) {
+  #btn_add{
+    width: 50%;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 325px) {
+  #btn_seeProduct{
+    font-size: 13px !important;
+  }
+  
+  #btn_deleteProduct{
+    font-size: 13px !important;
+  }
+}
+
+
+@media (max-width: 315px) {
+  #btn_add{
+    width: 52%;
+    font-size: 12px !important;
+  }
+}

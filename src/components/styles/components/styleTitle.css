@@ -1,0 +1,45 @@
+#containerTitulo h2 {
+    display: block;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    /* Se toma de base una imagen para sobre saltar de mejor manera
+        la sobra que se le dara al cuadro donde se encuentra el h3 */
+    background: #b5b5b5;
+    background: url("../../../assets/imgs/backgrounds/pxgray.png");
+    /* Para generar un efecto de sobra tipo 3d se hizo uso de varias
+    sombrar intensifancando cada vez mas en un 1px, esto se puede ir 
+    haciendo por partes probando a su vez que hace cada sombra */
+    box-shadow: 0px 1px 0px #232425,
+        1px 2px 0px #232425,
+        2px 3px 0px #232425,
+        3px 4px 0px #232425;
+    font-size: 30px;
+    margin-top: -30px;
+}
+
+
+@media (max-width: 768px) {
+    #containerTitulo h2 {
+      font-size: 22px;
+    }
+}
+
+
+@media (max-width: 470px) {
+    #containerTitulo h2 {
+    font-size: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    #containerTitulo h2 {
+    font-size: 20px;
+    }
+}
+
+@media (max-width: 335px) {
+    #containerTitulo h2 {
+    font-size: 18px;
+    }
+}

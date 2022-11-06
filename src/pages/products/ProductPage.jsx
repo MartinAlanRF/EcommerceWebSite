@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import ProductContext from "../../context/ProductContext"
 
-import Title from '../../components/Title'
+/* import Title from '../../components/Title' */
 import ProductFormEdit from "../../components/productsComponents/ProductFormEdit";
 import { useParams } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const ProductPage = () => {
 
   return (
     <>
-      <Title titulo={product.name} />
+      {/* <Title titulo={product.name} /> */}
 
       <div className="d-flex justify-content-center text-center h-100 ">
         <div className="row">
@@ -42,7 +42,7 @@ const ProductPage = () => {
                 <div className="d-flex justify-content-center mt-4">
                   <div className="col-12">
                     <button type="button" className="btn btn-success w-75" onClick={handleAgregarProductoCarrito}>
-                      <i class="bi bi-cart"></i> Agregar al carrito
+                      <i className="bi bi-cart"></i> Agregar al carrito
                     </button>
                     {/* Pregunta si el usuario es admnistrador */}
                     {auth.rol === 'admin' ?

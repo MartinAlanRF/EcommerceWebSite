@@ -90,7 +90,7 @@ const ProductFormEdit = () => {
   return (
    <>
     <Button className="ms-auto w-75 mt-2" variant="btn btn-warning" onClick={handleShow}>
-      <i class="bi bi-pencil-square"></i> Editar producto
+      <i className="bi bi-pencil-square"></i> Editar producto
     </Button>
 
     <Modal centered show={show} onHide={handleClose}>

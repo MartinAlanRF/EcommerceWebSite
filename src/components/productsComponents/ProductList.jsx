@@ -8,7 +8,9 @@ import ReactPaginate from "react-paginate";
 import { AuthContext } from "../../context/AuthContext";
 
 /* Estilo para los botones */
-import '../styles/stylePaginationBttns.css';
+import '../../components/styles/components/stylePaginationBttns.css';
+/* Importando el estilo para  ProductsPage */
+import '../../components/styles/products/styleProducts.css';
 
 const ProductList = () => {
   // const [products] = useState(initialState)
@@ -53,16 +55,16 @@ const ProductList = () => {
             </div>
             
             <div className="d-flex justify-content-center mt-4">
-              <div className="col-4">
-                <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
+              <div className="col-6">
+                <NavLink id="btn_seeProduct" to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
                 <i className="bi bi-archive"></i> Ver producto
                 </NavLink>     
               </div>
               {auth.rol === 'admin' ? 
               <> 
-                <div className="col-4">
-                  <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
-                    <i class="bi bi-trash"></i> Eliminar
+                <div className="col-6">
+                  <button id="btn_deleteProduct" className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
+                    <i className="bi bi-trash"></i> Eliminar
                   </button>
                 </div>
               </>

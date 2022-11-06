@@ -1,11 +1,10 @@
-
-
 #root{
   margin-bottom: 20px;
 }
 .jumb{
   height: 250px;
 }
+
 /* Esto es el estilo del jumnotrom */
     .product-device {
     position: absolute;
@@ -59,10 +58,6 @@
     text-align: justify;
   }
 
-  @media (min-width: 768px) {
-    .seccionText{
-        padding: 112px;
-    }
-  }
+
 
   /* Style for products page */
