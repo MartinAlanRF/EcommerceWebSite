@@ -13,7 +13,7 @@ const CartList = () => {
           <div id="div_cart" className="card-body">
             <div className="row d-flex justify-content-between align-items-center">
               <div id="img_cart" className="col-md-3 col-lg-2 col-sm-8">
-                <img  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp" className="img-fluid rounded-3" alt="product" />
+                <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Imagen_no_disponible.svg/240px-Imagen_no_disponible.svg.png" className="img-fluid rounded-3" alt="product" />
               </div>
 
               <div id="div_productCartText" className="col-md-4 col-lg-4 col-sm-10">

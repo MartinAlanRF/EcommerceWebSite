@@ -11,8 +11,8 @@
 }
 
 #div_login_container{
-    background: rgb(229,236,242);
-    background: linear-gradient(304deg, rgba(229,236,242,0.7906512946975666) 4%, rgba(255,253,254,1) 100%);
+    background: #e5ecf2;
+    background: linear-gradient(304deg, #e5ecf2ca 4%, rgba(255,253,254,1) 100%);
     justify-content: center;
     border-radius: 15px;
 }
@@ -42,8 +42,8 @@
 }
 
 #div_register_container{
-    background: rgb(229,236,242);
-    background: linear-gradient(304deg, rgba(229,236,242,0.7906512946975666) 4%, rgba(255,253,254,1) 100%);
+    background: #e5ecf2;
+    background: linear-gradient(304deg, #e5ecf2ca 4%, #fffdfe 100%);
     justify-content: center;
     border-radius: 15px;
 }

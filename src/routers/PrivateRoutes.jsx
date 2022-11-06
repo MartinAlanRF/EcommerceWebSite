@@ -17,7 +17,7 @@ const AppRouter = () => {
   return (
     <>
         <NavBarPrivado/>
-        <div className="container pt-5">
+        <div className="container">
             <Routes>
                 {/* Rutas exclusivamente privadas para los usuarios que tengan un inicio de sesión activo */}
                 

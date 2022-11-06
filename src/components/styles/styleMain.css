@@ -1,75 +1,69 @@
 body, html {
   height: 100%;
-  margin: 0;
+  
 }
 
 body{
   background-image: url("../../assets/imgs/backgrounds/white-paper-texture.jpg");
-  background-color: #000000;
+
 }
 
-#root{
-  margin-bottom: 20px;
-  min-height: 100%;
- 
-}
-.jumb{
-  height: 250px;
+.mainHome{
+  margin-top: -40px;
 }
 
-/* Esto es el estilo del jumnotrom */
-    .product-device {
-    position: absolute;
-    width: 600px;
-    height: 200px;
+#jumb{
+  margin-top: 50px !important ;
+  margin-bottom: 20px !important;
+  max-height: 200px;
+  background: #7cb3e2;
+  background: linear-gradient(10deg, #7cb3e2ca 21%, #fdfdffaf 98%);
+}
 
-    background-color: rgba(51, 51, 51, 0.575);
-    border-radius: 10px;
-  /*  // transform: rotate(30deg); */
-  }
-  
-/*   .product-device::before {
-    position: absolute;
-    top: 10%;
-    right: 10px;
-    bottom: 10%;
-    left: 10px;
-    content: "";
-    background-color: rgba(255, 255, 255, .1);
-    border-radius: 5px;
-  } */
-  
-/*   .product-device-2 {
-    top: -25%;
-    right: auto;
-    bottom: 0;
-    left: 5%;
-    background-color: #e5e5e5;
-  } */
+/* Productos */
+.seccionText{
+  padding: 3rem;
+  text-align: justify;
+}
 
-  /* Categorías */
-.seccionProducto1{
-    background-image: url('../../assets/imgs/homeImgs/img1.jpg');
-    min-height: 480px;
+  .seccionProducto1{
+    background-image: url('../../assets/imgs/homeImgs/Procesadores.jpg');
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
 
   .seccionProducto2{
-    background-image: url('../../assets/imgs/homeImgs/img2.jpg');
-    min-height: 480px;
+    background-image: url('../../assets/imgs/homeImgs/placa_madre.jpg');
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
 
   .seccionProducto3{
-    background-image: url('../../assets/imgs/homeImgs/img3.jpg');
-    min-height: 480px;
+    background-image: url('../../assets/imgs/homeImgs/memorias_ram.jpg');
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
   }
-  .seccionText{
-    padding: 3rem;
-    text-align: justify;
+
+  .seccionProducto4{
+    background-image: url('../../assets/imgs/homeImgs/fuentes_poder.jpg');
+    min-height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
 
+  @media (max-width: 510px) {
 
-  /* Style for products page */
+    .seccionProducto1{
+      min-height: 250px;
+    }
+
+
+  }
