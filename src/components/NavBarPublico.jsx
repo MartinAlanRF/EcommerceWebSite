@@ -51,7 +51,7 @@ const NavBarPublico = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  INICIO
+                 <i className="bi bi-house"></i> INICIO INICIO
                 </NavLink>
               </li>
 

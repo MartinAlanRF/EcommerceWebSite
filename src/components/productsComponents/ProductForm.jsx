@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import ProductContext from '../../context/ProductContext';
-/* So you can import our Modal component like that: */
-/* import { Modal } from 'bootstrap' */
-/* or if you want to import everything you can do: */
-//import * as Bootstrap from 'bootstrap'
-/* Se crea una variable de estado inicial de tipo objeto */
+ /* Componenetes para crear el modal con react-boostrap */
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+/* Importando sweetalert */
+import Swal from 'sweetalert2';
 
 const initForm = {
   name: "",
@@ -23,10 +23,20 @@ const ProductForm = () => {
   const handleForm = async (e) => {
     /* Previene que se recargue la página al mandar la info del formulario */
     e.preventDefault();
-    /* Se manda a llamar a la función crear producto mandandole la información del form */
-    await crearProducto (form);
-    setForm(initForm); //Actualiza la información que tendra el formulario tecnicamente 
-  // en esta linea de comando limpia los campos con la variable de estado inicial del form
+    /* Se manda a llamar a la función verifyInputs para verificar que los campos no vayan vaciós */
+    if(verifyInputs()){
+      /* Se manda a llamar a la función crear producto mandandole la información del form */
+      await crearProducto (form);
+      /*setForm: Actualiza la información que tendra el formulario limpian así los campos con la variable 
+      de estado inicial del form */
+      setForm(initForm);
+      /* Se manda a llamar a la función handleClose para cerrar el modal una vez se haya creado el producto */
+      handleClose();
+      /* Se manda a llamar a la función de  */ 
+    }else{
+      warningAlert();
+    }
+
   };
 
   const cambio = (e) => {
@@ -37,54 +47,88 @@ const ProductForm = () => {
   };
 
 
+  /* Funciones para el modal */
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  /* Función para validar que los campos no se manden vaciós */
+  const verifyInputs = () =>{
+    let bln_response = false;
+
+    let inputName = document.getElementById("inputName").value;
+    let inputDescription = document.getElementById("inputDescription").value;
+    let inputPrice = document.getElementById("inputPrice").value;
+
+    if((inputName.length !== 0) && (inputDescription.length !== 0) && (inputPrice.length !== 0)){
+      bln_response = true;
+    }
+
+    return bln_response;
+  }
+  /* Función de advetencia implementada con sweet alert2 */
+  const warningAlert = async () =>{
+    const Toast = Swal.mixin({
+      toast: true,
+      //position: 'bottom-end',
+      position: 'center',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 2000,
+    // timerProgressBar: true
+    })
+  
+    await Toast.fire({
+      icon: 'warning',
+      title: '¡Por favor llene los campos, no deje ninguno vació!'
+    })
+  }
+
   return (
-    <form className="w-100" onSubmit={handleForm}>
-      <div className="mb-3">
-        <label htmlFor="inputName" className="form-label">
-          Nombre
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="inputName"
-          name="name"
-          value={form.name}
-          onChange={cambio}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="inputDescription" className="form-label">
-          Descripcion
-        </label>
-        <input
-          type="text"
-          name="description"
-          className="form-control"
-          id="inputDescription"
-          value={form.description}
-          onChange={cambio}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="inputPrice" className="form-label">
-          Precio
-        </label>
-        <input
-          type="nomber"
-          name="price"
-          className="form-control"
-          id="inputPrice"
-          value={form.price}
-          onChange={cambio}
-        />
-      </div>
-      <div className="mb-3 text-end">
-        <button type="submit" className="btn btn-success">
-          Crear
-        </button>
-      
-      </div>
-    </form>
+    <>
+      <Button className="ms-auto w-25" variant="btn btn-primary" onClick={handleShow}>
+        <i className="bi bi-plus-lg"></i> Nuevo producto
+      </Button>
+      <Modal centered show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Añadir un nuevo producto</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form className="w-100" onSubmit={handleForm}>
+            <div className="mb-3">
+              <label htmlFor="inputName" className="form-label">
+                Nombre
+              </label>
+              <input type="text" className="form-control" id="inputName" name="name" value={form.name} onChange={cambio}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputDescription" className="form-label">
+                Descripcion
+              </label>
+              <input type="text" name="description" className="form-control" id="inputDescription" value={form.description} onChange={cambio}/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="inputPrice" className="form-label">
+                Precio
+              </label>
+              <input type="nomber" name="price" className="form-control" id="inputPrice" value={form.price} onChange={cambio}/>
+            </div>
+            <div className="mb-3 text-end">
+              <Modal.Footer>
+                <button type="submit" className="btn btn-success"> <i className="bi bi-plus-lg"></i>  Añadir </button>
+                <Button variant="secondary" onClick={handleClose}>Cerrar <i className="bi bi-x"></i> </Button>
+              </Modal.Footer>
+            </div>
+        </form>
+          
+        </Modal.Body>
+      </Modal>
+    </>
+
   );
 };
 

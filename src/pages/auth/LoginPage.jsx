@@ -57,7 +57,7 @@ const LoginPage = () => {
 
                 <div className="d-flex justify-content-center mt-3 col-lg-12 col-md-12 col-sm-12 ">
                   <button  type="submit" className=" col-8 btn btn-success">
-                    Iniciar sesión
+                  <i class="bi bi-box-arrow-in-right"></i> Iniciar sesión
                   </button>
                 </div>
 

@@ -59,7 +59,7 @@ const NavBarPrivado = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  INICIO
+                 <i className="bi bi-house"></i> INICIO
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -70,7 +70,7 @@ const NavBarPrivado = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  NUESTROS PRODUCTOS
+                <i className="bi bi-journal"></i>  NUESTROS PRODUCTOS
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -81,7 +81,7 @@ const NavBarPrivado = () => {
                     isActive ? "nav-link active" : "nav-link"
                   }
                 >
-                  CARRITO
+                <i className="bi bi-cart"></i>  CARRITO
                 </NavLink>
               </li>
             </ul>
@@ -109,7 +109,7 @@ const NavBarPrivado = () => {
                         isActive ? "dropdown-item active" : "dropdown-item"
                       }
                     >
-                      Perfil
+                      <i className="bi bi-person-circle"></i> Perfil
                     </NavLink>
                     </li>
                     <li>
@@ -117,11 +117,8 @@ const NavBarPrivado = () => {
                     </li>
                     <li>
                       <button className="dropdown-item" onClick={handleLogout}>
-                        Cerrar sesión
+                        <i className="bi bi-box-arrow-in-left"></i>  Cerrar sesión
                       </button>
-{/*                       <button className="dropdown-item" onClick={logout}>
-                        Cerrar sesión
-                      </button> */}
                     </li>
                   </ul>
                 </li>

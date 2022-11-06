@@ -52,22 +52,22 @@ const ProductList = () => {
               <h5 className="">$ {product.price} mxn</h5>
             </div>
             
-          <div className="d-flex justify-content-center mt-4">
-            <div className="col-4">
-              <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
-                Detalles
-              </NavLink>     
-            </div>
-            {auth.rol === 'admin' ? 
-            <> 
+            <div className="d-flex justify-content-center mt-4">
               <div className="col-4">
-                <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
-                <i class="bi bi-trash"></i> 
-                </button>
+                <NavLink to={`/products/${product.id}`} className=" w-100 btn btn-info px-2">
+                <i className="bi bi-archive"></i> Ver producto
+                </NavLink>     
               </div>
-            </>
-            : <></>}
-          </div>
+              {auth.rol === 'admin' ? 
+              <> 
+                <div className="col-4">
+                  <button className="btn btn-danger w-100 ms-2" onClick={()=> eliminarProducto(product.id)}>
+                    <i class="bi bi-trash"></i> Eliminar
+                  </button>
+                </div>
+              </>
+              : <></>}
+            </div>
           </div>
         </div>
       </div>        

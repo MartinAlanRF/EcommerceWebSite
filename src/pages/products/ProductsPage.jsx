@@ -3,15 +3,12 @@ import Title from '../../components/Title';
 /* Importando componentes para los productos */
 //Lista de todos los productos
 import ProductList from "../../components/productsComponents/ProductList";
-//Formulario para añadir un nuevo producto
-import ProductForm from "../../components/productsComponents/ProductForm";
-//
-import { AuthContext } from "../../context/AuthContext";
 
-/* import { Modal } from 'bootstrap';
- */
-/* Importo mis estilos css */
+/*Auth context para validar los roles para añadir, eliminar productos */
+import { AuthContext } from "../../context/AuthContext";
+/* Importando el estilo para  ProductsPage */
 import '../../components/styles/styleProducts.css';
+import ProductForm from "../../components/productsComponents/ProductForm";
 
 
 const ProductsPage = () => {
@@ -20,22 +17,25 @@ const ProductsPage = () => {
   
   return (
     <>
-      <Title titulo={"Nuestro catálogo"} />
-        <div className="container text-center  align-items-center h-100 ">
+      <Title titulo={"Nuestro catálogo de Productos"} />
+        {/* Pregunta si el usuario es admnistrador */}
+          {auth.rol === 'admin' ? 
+            <> {/* Si el rol es admin muestra un formulario pra poder añadir más productos */}
+                <div className="cotainer mb-3 me-4">
+                  <div className="row">
+                    <ProductForm/>
+                  </div>
+                </div>
+            </>
+            : 
+            <>{/* En caso del que no sea admin el sistema no mostrará el formulario */}
+            </>}
+        <div className="container d-flex text-center justify-content-centers align-items-center">
           <div className="row">
             <ProductList/>
           </div>
         </div>
-        {/* Pregunta si el usuario es admnistrador */}
-        {auth.rol === 'admin' ? 
-          <> {/* Si el rol es admin muestra un formulario pra poder añadir más productos */}
-            <div className="container">
-              <ProductForm/>
-            </div>
-          </>
-          : 
-          <>{/* En caso del que no sea admin el sistema no mostrará el formulario */}
-          </>}
+
         
     </>
   );
