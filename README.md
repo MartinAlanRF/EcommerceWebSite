@@ -14,3 +14,7 @@ BackEnd con Hosting de render:
 
 FrontEnd con Hosting en Netlify:
 ![HOMEPAGE](https://user-images.githubusercontent.com/101476341/200197639-f20da4ef-f631-4136-99a1-ab11227e1e65.jpg)
+
+Nota:
+Como futura implementación se implementará cloudinary dentro del backend para poder subir imagenes de cada producto individual.
+De mommento solo muestra como imagen de muestra una imagen de recurso con la leyenda "Imagen no disponible".
