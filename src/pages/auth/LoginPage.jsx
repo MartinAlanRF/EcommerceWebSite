@@ -36,7 +36,7 @@ const LoginPage = () => {
   return (
     <>
       <div id="div_login" className="">
-        <div className="row col-6">
+        <div className="row col-lg-6 col-md-10 col-sm-12">
           <div className="col-12 mb-3 border border-3 border-top-0 border-start-0 border-end-0 border-dark">
            <h2 className='text-center '>INICIA SESIÓN</h2>
           </div>

@@ -10,7 +10,7 @@ const HomePage = () => {
     <>
       <div className="mainHome">
         {/* JumBotrom EcoomerceWebsite */}
-        <div id="jumb" className="border border-3  border-dark  rounded-4 position-relative overflow-hidden p-3 p-md-5 m-md-3 ">
+        <div id="jumb" className="border border-3  border-dark  rounded-4 position-relative overflow-hidden p-3 p-md-3 m-md-3 ">
           <div className="col-md-12 mx-auto my-1">
             {/* <div className="product-device shadow-sm d-none d-md-block " /> */}
             <h1 className="text-center"> <i className="bi bi-pc-display-horizontal"></i> Pc's_MARF</h1>

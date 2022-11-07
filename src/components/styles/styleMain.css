@@ -60,10 +60,18 @@ body{
 
 
   @media (max-width: 510px) {
-
     .seccionProducto1{
-      min-height: 250px;
+      min-height: 200px;
+    }
+    #jumb p{ 
+      font-size: 16px !important;
     }
 
+  }
+
+  @media (max-width: 410px) {
+    .seccionProducto1{
+      min-height: 150px;
+    }
 
   }

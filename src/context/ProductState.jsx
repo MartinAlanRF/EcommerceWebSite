@@ -210,7 +210,6 @@ const ProductState = ({ children }) => {
       type: "VACIAR_CARRITO",
       payload: cart,
     });
-    succesAlert('Producto eliminado del carrtito');
   }
 
   return (
