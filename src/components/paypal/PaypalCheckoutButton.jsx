@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-
+/* Importando sweetalert */
+import Swal from 'sweetalert2';
+import ProductContext from "../../context/ProductContext";
 // This values are the props in the UI
 const style = { layout: "vertical" };
 
@@ -9,9 +11,6 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
   // usePayPalScriptReducer can be use only inside children of PayPalScriptProviders
   // This is the main reason to wrap the PayPalButtons in a new component
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
-
-  // sb-wv9lr20565334@personal.example.com
-  // pn2XFFw.
 
   useEffect(() => {
     dispatch({
@@ -22,6 +21,28 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
       },
     });
   }, [currency, showSpinner]);
+
+  const succesAlert = async (message) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      //position: 'bottom-end',
+      position: 'center',
+      iconColor: 'white',
+      customClass: {
+        popup: 'colored-toast'
+      },
+      showConfirmButton: false,
+      timer: 2000,
+      // timerProgressBar: true
+    })
+  
+    await Toast.fire({
+      icon: 'success',
+      title: message
+    })
+  }
+  
+  const { cart, vaciarCarrito } = useContext (ProductContext)
 
   return (
     <>
@@ -45,14 +66,16 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
             })
             .then((orderId) => {
               // Your code here after create the order
-              console.log("Orden de conora: " + orderId);
+              console.log("Orden de compra: " + orderId);
+              succesAlert('Orden de compra');
               return orderId;
             });
         }}
         onApprove={function (data, actions) {
           return actions.order.capture().then(function () {
             console.log("Compra realizada");
-            // Your code here after capture the order
+            vaciarCarrito(cart);
+            succesAlert('Compra realizada');
           });
         }}
       />

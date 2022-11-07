@@ -27,6 +27,14 @@ const reducer = (globalState, action) => {
       cart: globalState.cart.filter( (producto)=> producto.id !== action.payload)
     };
 
+    case "VACIAR_CARRITO":
+      /* Se tiene que retornar un objeto */
+    return {
+      ...globalState,
+      /* Se ocupo filter para filtrar las listas */
+      cart: []
+    };
+
     default:
       return globalState;
   }

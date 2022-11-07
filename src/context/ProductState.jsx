@@ -205,6 +205,14 @@ const ProductState = ({ children }) => {
     succesAlert('Producto eliminado del carrtito');
   }
 
+  const vaciarCarrito = (cart) =>{
+    dispatch({
+      type: "VACIAR_CARRITO",
+      payload: cart,
+    });
+    succesAlert('Producto eliminado del carrtito');
+  }
+
   return (
     <>
       <ProductContext.Provider
@@ -219,6 +227,7 @@ const ProductState = ({ children }) => {
           agregarProductoCarrito,
           cart: globalState.cart,
           eliminarProductoCarrito,
+          vaciarCarrito,
         }}
 
       >
