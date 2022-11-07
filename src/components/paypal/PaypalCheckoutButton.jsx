@@ -67,7 +67,7 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
             .then((orderId) => {
               // Your code here after create the order
               console.log("Orden de compra: " + orderId);
-              succesAlert('Orden de compra');
+              succesAlert('Orden de compra: ' + orderId);
               return orderId;
             });
         }}
