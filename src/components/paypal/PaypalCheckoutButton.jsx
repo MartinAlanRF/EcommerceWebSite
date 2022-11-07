@@ -74,8 +74,8 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
         onApprove={function (data, actions) {
           return actions.order.capture().then(function () {
             console.log("Compra realizada");
-            succesAlert('Compra realizada');
             vaciarCarrito(cart);
+            succesAlert('Compra realizada');
           });
         }}
       />

@@ -210,6 +210,7 @@ const ProductState = ({ children }) => {
       type: "VACIAR_CARRITO",
       payload: cart,
     });
+    succesAlert('Compra realizada con éxtio');
   }
 
   return (
