@@ -25,8 +25,8 @@ const PaypalCheckoutButton = ({ currency, amount, showSpinner }) => {
   const succesAlert = async (message) => {
     const Toast = Swal.mixin({
       toast: true,
-      //position: 'bottom-end',
-      position: 'center',
+      position: 'top-right',
+      //position: 'center',
       iconColor: 'white',
       customClass: {
         popup: 'colored-toast'
